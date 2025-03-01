@@ -3,406 +3,384 @@ import { MarkerType } from '@vue-flow/core'
 export const initialNodes = [
   {
     id: '1',
-    type: 'custom',    
+    type: 'special',    
     data: { 
-        label: 'Taskmaster',
+      label: 'Taskmaster',
     },
     style: {
-        backgroundColor: 'lightgreen',
-        borderColor: 'darkgreen',
-        borderWidth: '2px',
+      backgroundColor: 'lightgreen',
+      borderColor: 'darkgreen',
     },
     position: { x: 400, y: 0 },
     class: 'light',
+    dimensions:{ width: 100, height:100}
   },
   {
     id: '2',
-    type: 'custom',
+    type: 'special',
     data: { 
-        label: 'Pilot lines', 
+      label: 'Pilot lines', 
+    },
+    props:{
+      label: 'Toooskmaster',
     },
     style: {
-        backgroundColor: 'lightgreen',
-        borderColor: 'darkgreen',
-        borderWidth: '2px',
+      backgroundColor: 'lightgreen',
+      borderColor: 'darkgreen',
     },
     position: { x: 600, y: 140 },
     class: 'light',
   },
   {
     id: '3',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Data digitization', 
+    },
+    props:{
+      label: 'Toooskmaster',
     },
     style: {
         backgroundColor: 'lightgreen',
         borderColor: 'darkblue',
-        borderWidth: '2px',
     },
     position: { x: 200, y: 200 },
     class: 'light',
   },
   {
     id: '4',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'At dawn...', 
     },
     style: {
         backgroundColor: 'yellow',
         borderColor: 'darkgreen',
-        borderWidth: '2px',
     },
     position: { x: 400, y: 200 },
     class: 'light',
   },
   {
     id: '5',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Structural modernization', 
     },
     style: {
         backgroundColor: 'lightgreen',
         borderColor: 'tomato',
-        borderWidth: '2px',
     },
     position: { x: 800, y: 200 },
     class: 'light',
   },
   {
     id: '6',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Robot resources', 
     },
     style: {
         backgroundColor: 'lightgreen',
         borderColor: 'orange',
-        borderWidth: '2px',
     },
     position: { x: 0, y: 300 },
     class: 'light',
   },
   {
     id: '7',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Security breach', 
     },
     style: {
         backgroundColor: 'lightgreen',
         borderColor: 'black',
-        borderWidth: '2px',
     },
     position: { x: 400, y: 300 },
     class: 'light',
   },
   {
     id: '8',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Resistance to change', 
     },
     style: {
         backgroundColor: 'yellow',
         borderColor: 'darkgreen',
-        borderWidth: '2px',
     },
     position: { x: 600, y: 330 },
     class: 'light',
   },
   {
     id: '9',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Training montage', 
     },
     style: {
         backgroundColor: 'lightgreen',
         borderColor: 'tomato',
-        borderWidth: '2px',
     },
     position: { x: 1000, y: 300 },
     class: 'light',
   },
   {
     id: '10',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Hybrid work program', 
     },
     style: {
         backgroundColor: 'lightgreen',
         borderColor: 'darkred',
-        borderWidth: '2px',
     },
     position: { x: 1200, y: 300 },
     class: 'light',
   },
   {
     id: '11',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Data storage inadequacy', 
     },
     style: {
         backgroundColor: 'yellow',
         borderColor: 'darkblue',
-        borderWidth: '2px',
     },
     position: { x: 200, y: 400 },
     class: 'light',
   },
   {
     id: '12',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Task manager', 
     },
     style: {
         backgroundColor: 'yellow',
         borderColor: 'tomato',
-        borderWidth: '2px',
     },
     position: { x: 800, y: 380 },
     class: 'light',
   },
   {
     id: '13',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Time management automation', 
     },
     style: {
         backgroundColor: 'yellow',
         borderColor: 'orange',
-        borderWidth: '2px',
     },
     position: { x: 0, y: 500 },
     class: 'light',
   },
   {
     id: '14',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Advanced data security', 
     },
     style: {
         backgroundColor: 'yellow',
         borderColor: 'black',
-        borderWidth: '2px',
     },
     position: { x: 400, y: 500 },
     class: 'light',
   },
   {
     id: '15',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Frontpage of the organisation', 
     },
     style: {
         backgroundColor: 'lightgreen',
         borderColor: 'purple',
-        borderWidth: '2px',
     },
     position: { x: 600, y: 500 },
     class: 'light',
   },
   {
     id: '16',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Modern leadership', 
     },
     style: {
         backgroundColor: 'yellow',
         borderColor: 'tomato',
-        borderWidth: '2px',
     },
     position: { x: 1000, y: 500 },
     class: 'light',
   },
   {
     id: '17',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Remote equipment shortage', 
     },
     style: {
         backgroundColor: 'yellow',
         borderColor: 'darkred',
-        borderWidth: '2px',
     },
     position: { x: 1200, y: 500 },
     class: 'light',
   },
   {
     id: '18',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Data scaling', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'darkblue',
-        borderWidth: '2px',
     },
     position: { x: 200, y: 600 },
     class: 'light',
   },
   {
     id: '19',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Routine software maintenance', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'orange',
-        borderWidth: '2px',
     },
     position: { x: 0, y: 720 },
     class: 'light',
   },
   {
     id: '20',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Threat intelligence', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'black',
-        borderWidth: '2px',
     },
     position: { x: 400, y: 700 },
     class: 'light',
   },
   {
     id: '21',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Social media presence', 
     },
     style: {
         backgroundColor: 'yellow',
         borderColor: 'purple',
-        borderWidth: '2px',
     },
     position: { x: 600, y: 700 },
     class: 'light',
   },
   {
     id: '22',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Open comms', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'tomato',
-        borderWidth: '2px',
     },
     position: { x: 1000, y: 700 },
     class: 'light',
   },
   {
     id: '23',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Remote monitoring', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'darkred',
-        borderWidth: '2px',
     },
     position: { x: 1200, y: 700 },
     class: 'light',
   },
   {
     id: '24',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Technology migration', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'darkblue',
-        borderWidth: '2px',
     },
     position: { x: 200, y: 750 },
     class: 'light',
   },
   {
     id: '25',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Group outliers', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'darkred',
-        borderWidth: '2px',
     },
     position: { x: 1100, y: 800 },
     class: 'light',
   },
   {
     id: '26',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Further problem detection', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'darkgreen',
-        borderWidth: '2px',
     },
     position: { x: 400, y: 860 },
     class: 'light',
   },
   {
     id: '27',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Customer service automation', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'purple',
-        borderWidth: '2px',
     },
     position: { x: 600, y: 900 },
     class: 'light',
   },
   {
     id: '28',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Regrouping', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'tomato',
-        borderWidth: '2px',
     },
     position: { x: 800, y: 900 },
     class: 'light',
   },
   {
     id: '29',
-    type: 'custom',
+    type: 'special',
     data: { 
         label: 'Evaluation', 
     },
     style: {
         backgroundColor: '#e84650',
         borderColor: 'darkgreen',
-        borderWidth: '2px',
     },
     position: { x: 400, y: 1000 },
     class: 'light',
