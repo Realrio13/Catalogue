@@ -96,7 +96,7 @@ export const initialNodes = [
         backgroundColor: 'lightgreen',
         borderColor: 'black',
     },
-    position: { x: 400, y: 300 },
+    position: { x: 400, y: 330 },
     class: 'light',
   },
   {
@@ -109,7 +109,7 @@ export const initialNodes = [
         backgroundColor: 'yellow',
         borderColor: 'darkgreen',
     },
-    position: { x: 600, y: 330 },
+    position: { x: 600, y: 380 },
     class: 'light',
   },
   {

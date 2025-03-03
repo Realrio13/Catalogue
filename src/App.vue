@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { initialEdges, initialNodes } from './InitialElements.js'
 import SpecialNode from './components/SpecialNode.vue'
+import { XMarkIcon } from "@heroicons/vue/24/outline";
+import Slideover from './components/Slideover.vue'
 
 /**
  * `useVueFlow` provides:
@@ -13,9 +15,8 @@ import SpecialNode from './components/SpecialNode.vue'
 const { onInit, onNodeDragStop} = useVueFlow()
 
 const nodes = ref(initialNodes)
-console.log("kukd")
 const edges = ref(initialEdges)
-
+const showMenu = ref(false);
 /**
  * This is a Vue Flow event-hook which can be listened to from anywhere you call the composable, instead of only on the main component
  * Any event that is available as `@event-name` on the VueFlow component is also available as `onEventName` on the composable and vice versa
@@ -29,21 +30,73 @@ onInit((vueFlowInstance) => {
 
 function onNodeClick({ event, node }) {
   console.log('Node clicked:', node.data.label, event);
+  showMenu.value = true;
 }
 
 </script>
 
+<style scoped>
+.slide-fade-enter-active {
+transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+transition: all 0.8s;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+transform: translateX(100%);
+opacity: 0;
+}
+</style>
+
+
 <template>
-  <VueFlow
-    :nodes="nodes"
-    :edges="edges"
-    :default-viewport="{ zoom: 1 }"
-    :min-zoom="0.2"
-    :max-zoom="4"
-    @node-click="onNodeClick"
-  >
-    <template #node-special="specialNodeProps">
-      <SpecialNode v-bind="specialNodeProps" />
-    </template>
-  </VueFlow>
+  <div class="flex items-center justify-center rounded-lg p-4 md:justify-center md:p-16 dark:bg-slate-900 dark:text-white">
+    <div style="width: auto; height: max-content">
+      <VueFlow
+        :nodes="nodes"
+        :edges="edges"
+        :default-viewport="{ zoom: 1 }"
+        :min-zoom="0.2"
+        :max-zoom="4"
+        @node-click="onNodeClick"
+      >
+        <template #node-special="specialNodeProps">
+          <SpecialNode v-bind="specialNodeProps" />
+        </template>
+      </VueFlow>
+    </div>
+    <div
+        class="flex items-center justify-center rounded-lg p-4 md:justify-center md:p-16 dark:bg-slate-900 dark:text-white"
+        
+    >
+        <div ref="memberData">
+
+        <Transition name="slide-fade">
+            <div
+            v-if="showMenu"
+            class="fixed right-0 top-0 z-50 flex h-screen w-96 flex-col items-center justify-center overflow-hidden bg-white p-6 shadow-xl dark:bg-slate-900 dark:shadow-slate-700"
+            >
+            <div
+                class="relative flex h-screen flex-col items-center justify-center gap-4 text-center"
+            >
+                <XMarkIcon width="100px"
+                @click="showMenu = false"
+                class="absolute left-4 top-4 size-6 cursor-pointer"
+                style="width: 50px; height: 50px"
+                />
+                <div>
+                <"sem veci">
+                </div>
+                <p class="px-4 italic leading-relaxed">
+                <"sem description">
+                </p>
+            </div>
+            </div>
+        </Transition>
+        </div>
+    </div>
+  </div>
 </template>

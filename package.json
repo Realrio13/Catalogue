@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.2.0",
     "@vue-flow/core": "^1.42.1",
     "vue": "^3.5.13",
     "vue-diagrams": "^1.0.1",
