@@ -53,8 +53,10 @@ opacity: 0;
 
 
 <template>
-  <div class="flex items-center justify-center rounded-lg p-4 md:justify-center md:p-16 dark:bg-slate-900 dark:text-white">
-    <div style="width: auto; height: max-content">
+  <div style="position: relative; display: inline;"
+  class="flex h-screen items-center justify-center rounded-lg p-4 md:justify-center md:p-16 dark:bg-slate-900 dark:text-white display: inline">
+    <div style="width: 1300px; height: 900px;"
+      class="flex flex-col divide-y divide-slate-300 overflow-hidden rounded-lg border border-slate-300 dark:divide-slate-600 dark:border-slate-600">
       <VueFlow
         :nodes="nodes"
         :edges="edges"
@@ -68,35 +70,29 @@ opacity: 0;
         </template>
       </VueFlow>
     </div>
-    <div
-        class="flex items-center justify-center rounded-lg p-4 md:justify-center md:p-16 dark:bg-slate-900 dark:text-white"
-        
-    >
-        <div ref="memberData">
-
-        <Transition name="slide-fade">
-            <div
-            v-if="showMenu"
-            class="fixed right-0 top-0 z-50 flex h-screen w-96 flex-col items-center justify-center overflow-hidden bg-white p-6 shadow-xl dark:bg-slate-900 dark:shadow-slate-700"
-            >
-            <div
-                class="relative flex h-screen flex-col items-center justify-center gap-4 text-center"
-            >
-                <XMarkIcon width="100px"
-                @click="showMenu = false"
-                class="absolute left-4 top-4 size-6 cursor-pointer"
-                style="width: 50px; height: 50px"
-                />
-                <div>
-                <"sem veci">
-                </div>
-                <p class="px-4 italic leading-relaxed">
-                <"sem description">
-                </p>
-            </div>
-            </div>
-        </Transition>
+    <Transition name="slide-fade">
+      <div
+      v-if="showMenu"
+      class="fixed right-0 top-0 z-50 flex h-screen w-96 flex-col items-left justify-center overflow-hidden bg-white p-6 shadow-xl dark:bg-slate-900 dark:shadow-slate-700"
+      style="position: fixed; background-color: wheat; right: 0; bottom: 0; width: 600px; height: 900px;"
+      >
+        <div
+          class="absolute flex h-screen flex-col items-left justify-center gap-4 text-center"
+          style="position: absolute; display: inline-block; right: 0px; width: 600px; height: 900px;"
+        >
+          <XMarkIcon width="100px"
+          @click="showMenu = false"
+            class="absolute left-4 top-4 size-6 cursor-pointer"
+          style="width: 50px; height: 50px"
+          />
+          <div>
+            <"sem vci">
+          </div>
+          <p class="px-4 italic leading-relaxed">
+            <"sem description">
+          </p>
         </div>
-    </div>
+      </div>
+    </Transition>
   </div>
 </template>
