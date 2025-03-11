@@ -6,6 +6,7 @@ export const initialNodes = [
     type: 'special',    
     data: { 
       label: 'Taskmaster',
+      complete: false,
     },
     style: {
       backgroundColor: 'lightgreen',
@@ -20,9 +21,7 @@ export const initialNodes = [
     type: 'special',
     data: { 
       label: 'Pilot lines', 
-    },
-    props:{
-      label: 'Toooskmaster',
+      complete: false,
     },
     style: {
       backgroundColor: 'lightgreen',
@@ -35,14 +34,12 @@ export const initialNodes = [
     id: '3',
     type: 'special',
     data: { 
-        label: 'Data digitization', 
-    },
-    props:{
-      label: 'Toooskmaster',
+      label: 'Data digitization', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'lightgreen',
-        borderColor: 'darkblue',
+      backgroundColor: 'lightgreen',
+      borderColor: 'darkblue',
     },
     position: { x: 200, y: 200 },
     class: 'light',
@@ -51,11 +48,12 @@ export const initialNodes = [
     id: '4',
     type: 'special',
     data: { 
-        label: 'At dawn...', 
+      label: 'At dawn...',
+      complete: false, 
     },
     style: {
-        backgroundColor: 'yellow',
-        borderColor: 'darkgreen',
+      backgroundColor: 'yellow',
+      borderColor: 'darkgreen',
     },
     position: { x: 400, y: 200 },
     class: 'light',
@@ -64,11 +62,12 @@ export const initialNodes = [
     id: '5',
     type: 'special',
     data: { 
-        label: 'Structural modernization', 
+      label: 'Structural modernization', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'lightgreen',
-        borderColor: 'tomato',
+      backgroundColor: 'lightgreen',
+      borderColor: 'tomato',
     },
     position: { x: 800, y: 200 },
     class: 'light',
@@ -77,11 +76,12 @@ export const initialNodes = [
     id: '6',
     type: 'special',
     data: { 
-        label: 'Robot resources', 
+      label: 'Robot resources', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'lightgreen',
-        borderColor: 'orange',
+      backgroundColor: 'lightgreen',
+      borderColor: 'orange',
     },
     position: { x: 0, y: 300 },
     class: 'light',
@@ -90,11 +90,12 @@ export const initialNodes = [
     id: '7',
     type: 'special',
     data: { 
-        label: 'Security breach', 
+      label: 'Security breach', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'lightgreen',
-        borderColor: 'black',
+      backgroundColor: 'lightgreen',
+      borderColor: 'black',
     },
     position: { x: 400, y: 330 },
     class: 'light',
@@ -103,11 +104,12 @@ export const initialNodes = [
     id: '8',
     type: 'special',
     data: { 
-        label: 'Resistance to change', 
+      label: 'Resistance to change', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'yellow',
-        borderColor: 'darkgreen',
+      backgroundColor: 'yellow',
+      borderColor: 'darkgreen',
     },
     position: { x: 600, y: 380 },
     class: 'light',
@@ -116,11 +118,12 @@ export const initialNodes = [
     id: '9',
     type: 'special',
     data: { 
-        label: 'Training montage', 
+      label: 'Training montage', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'lightgreen',
-        borderColor: 'tomato',
+      backgroundColor: 'lightgreen',
+      borderColor: 'tomato',
     },
     position: { x: 1000, y: 300 },
     class: 'light',
@@ -129,11 +132,12 @@ export const initialNodes = [
     id: '10',
     type: 'special',
     data: { 
-        label: 'Hybrid work program', 
+      label: 'Hybrid work program', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'lightgreen',
-        borderColor: 'darkred',
+      backgroundColor: 'lightgreen',
+      borderColor: 'darkred',
     },
     position: { x: 1200, y: 300 },
     class: 'light',
@@ -142,11 +146,12 @@ export const initialNodes = [
     id: '11',
     type: 'special',
     data: { 
-        label: 'Data storage inadequacy', 
+      label: 'Data storage inadequacy', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'yellow',
-        borderColor: 'darkblue',
+      backgroundColor: 'yellow',
+      borderColor: 'darkblue',
     },
     position: { x: 200, y: 400 },
     class: 'light',
@@ -155,11 +160,12 @@ export const initialNodes = [
     id: '12',
     type: 'special',
     data: { 
-        label: 'Task manager', 
+      label: 'Task manager', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'yellow',
-        borderColor: 'tomato',
+      backgroundColor: 'yellow',
+      borderColor: 'tomato',
     },
     position: { x: 800, y: 380 },
     class: 'light',
@@ -168,11 +174,12 @@ export const initialNodes = [
     id: '13',
     type: 'special',
     data: { 
-        label: 'Time management automation', 
+      label: 'Time management automation', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'yellow',
-        borderColor: 'orange',
+      backgroundColor: 'yellow',
+      borderColor: 'orange',
     },
     position: { x: 0, y: 500 },
     class: 'light',
@@ -181,11 +188,12 @@ export const initialNodes = [
     id: '14',
     type: 'special',
     data: { 
-        label: 'Advanced data security', 
+      label: 'Advanced data security',
+      complete: false, 
     },
     style: {
-        backgroundColor: 'yellow',
-        borderColor: 'black',
+      backgroundColor: 'yellow',
+      borderColor: 'black',
     },
     position: { x: 400, y: 500 },
     class: 'light',
@@ -194,11 +202,12 @@ export const initialNodes = [
     id: '15',
     type: 'special',
     data: { 
-        label: 'Frontpage of the organisation', 
+      label: 'Frontpage of the organisation',
+      complete: false, 
     },
     style: {
-        backgroundColor: 'lightgreen',
-        borderColor: 'purple',
+      backgroundColor: 'lightgreen',
+      borderColor: 'purple',
     },
     position: { x: 600, y: 500 },
     class: 'light',
@@ -207,11 +216,12 @@ export const initialNodes = [
     id: '16',
     type: 'special',
     data: { 
-        label: 'Modern leadership', 
+      label: 'Modern leadership', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'yellow',
-        borderColor: 'tomato',
+      backgroundColor: 'yellow',
+      borderColor: 'tomato',
     },
     position: { x: 1000, y: 500 },
     class: 'light',
@@ -220,11 +230,12 @@ export const initialNodes = [
     id: '17',
     type: 'special',
     data: { 
-        label: 'Remote equipment shortage', 
+      label: 'Remote equipment shortage', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'yellow',
-        borderColor: 'darkred',
+      backgroundColor: 'yellow',
+      borderColor: 'darkred',
     },
     position: { x: 1200, y: 500 },
     class: 'light',
@@ -233,11 +244,12 @@ export const initialNodes = [
     id: '18',
     type: 'special',
     data: { 
-        label: 'Data scaling', 
+      label: 'Data scaling', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'darkblue',
+      backgroundColor: '#e84650',
+      borderColor: 'darkblue',
     },
     position: { x: 200, y: 600 },
     class: 'light',
@@ -246,11 +258,12 @@ export const initialNodes = [
     id: '19',
     type: 'special',
     data: { 
-        label: 'Routine software maintenance', 
+      label: 'Routine software maintenance', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'orange',
+      backgroundColor: '#e84650',
+      borderColor: 'orange',
     },
     position: { x: 0, y: 720 },
     class: 'light',
@@ -259,11 +272,12 @@ export const initialNodes = [
     id: '20',
     type: 'special',
     data: { 
-        label: 'Threat intelligence', 
+      label: 'Threat intelligence', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'black',
+      backgroundColor: '#e84650',
+      borderColor: 'black',
     },
     position: { x: 400, y: 700 },
     class: 'light',
@@ -272,11 +286,12 @@ export const initialNodes = [
     id: '21',
     type: 'special',
     data: { 
-        label: 'Social media presence', 
+      label: 'Social media presence', 
+      complete: false,
     },
     style: {
-        backgroundColor: 'yellow',
-        borderColor: 'purple',
+      backgroundColor: 'yellow',
+      borderColor: 'purple',
     },
     position: { x: 600, y: 700 },
     class: 'light',
@@ -285,11 +300,12 @@ export const initialNodes = [
     id: '22',
     type: 'special',
     data: { 
-        label: 'Open comms', 
+      label: 'Open comms', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'tomato',
+      backgroundColor: '#e84650',
+      borderColor: 'tomato',
     },
     position: { x: 1000, y: 700 },
     class: 'light',
@@ -298,11 +314,12 @@ export const initialNodes = [
     id: '23',
     type: 'special',
     data: { 
-        label: 'Remote monitoring', 
+      label: 'Remote monitoring', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'darkred',
+      backgroundColor: '#e84650',
+      borderColor: 'darkred',
     },
     position: { x: 1200, y: 700 },
     class: 'light',
@@ -311,11 +328,12 @@ export const initialNodes = [
     id: '24',
     type: 'special',
     data: { 
-        label: 'Technology migration', 
+      label: 'Technology migration', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'darkblue',
+      backgroundColor: '#e84650',
+      borderColor: 'darkblue',
     },
     position: { x: 200, y: 750 },
     class: 'light',
@@ -324,11 +342,12 @@ export const initialNodes = [
     id: '25',
     type: 'special',
     data: { 
-        label: 'Group outliers', 
+      label: 'Group outliers', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'darkred',
+      backgroundColor: '#e84650',
+      borderColor: 'darkred',
     },
     position: { x: 1100, y: 800 },
     class: 'light',
@@ -337,11 +356,12 @@ export const initialNodes = [
     id: '26',
     type: 'special',
     data: { 
-        label: 'Further problem detection', 
+      label: 'Further problem detection', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'darkgreen',
+      backgroundColor: '#e84650',
+      borderColor: 'darkgreen',
     },
     position: { x: 400, y: 860 },
     class: 'light',
@@ -350,11 +370,12 @@ export const initialNodes = [
     id: '27',
     type: 'special',
     data: { 
-        label: 'Customer service automation', 
+      label: 'Customer service automation', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'purple',
+      backgroundColor: '#e84650',
+      borderColor: 'purple',
     },
     position: { x: 600, y: 900 },
     class: 'light',
@@ -363,11 +384,12 @@ export const initialNodes = [
     id: '28',
     type: 'special',
     data: { 
-        label: 'Regrouping', 
+      label: 'Regrouping',
+      complete: false, 
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'tomato',
+      backgroundColor: '#e84650',
+      borderColor: 'tomato',
     },
     position: { x: 800, y: 900 },
     class: 'light',
@@ -376,15 +398,32 @@ export const initialNodes = [
     id: '29',
     type: 'special',
     data: { 
-        label: 'Evaluation', 
+      label: 'Evaluation', 
+      complete: false,
     },
     style: {
-        backgroundColor: '#e84650',
-        borderColor: 'darkgreen',
+      backgroundColor: '#e84650',
+      borderColor: 'darkgreen',
     },
     position: { x: 400, y: 1000 },
     class: 'light',
   },
+
+
+  {
+    id: '30',
+    type: 'action',
+    data: { 
+        label: 'Calculate Digital Maturity', 
+    },
+    style: {
+        backgroundColor: 'lightblue',
+        borderColor: 'black',
+    },
+    position: { x: 0, y: 1200 },
+    class: 'dark',
+  },
+
 ]
 
 export const initialEdges = [

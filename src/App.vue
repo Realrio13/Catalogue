@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { initialEdges, initialNodes } from './InitialElements.js'
 import SpecialNode from './components/SpecialNode.vue'
+import ActionNode from './components/ActionNode.vue'
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 import Slideover from './components/Slideover.vue'
 
@@ -19,6 +20,7 @@ const edges = ref(initialEdges)
 const showMenu = ref(false);
 
 var currentNode = ref(null);
+var finishedColor = ref(null);
 /**
  * This is a Vue Flow event-hook which can be listened to from anywhere you call the composable, instead of only on the main component
  * Any event that is available as `@event-name` on the VueFlow component is also available as `onEventName` on the composable and vice versa
@@ -31,11 +33,21 @@ onInit((vueFlowInstance) => {
 })
 
 function onNodeClick({ event, node }) {
-  console.log('Node clicked:', node.data.label, event);
-  currentNode = node.data;
-  showMenu.value = true;
-}
+  if (node.type == "special") {
+    console.log('Node clicked:', node.data.label, event);
+    currentNode = node.data;
+    showMenu.value = true;
+    if (node.data.complete == false){
+      finishedColor = 'red';
+    }
+    else finishedColor = 'green';
+  }
+  else if (node.type == "Action"){
+    // actions for calculate digital maturity and list view
+  }
+  }
 
+//style="position: relative; font-weight: bolder; font-size: larger; color: finishedColor ;"
 </script>
 
 <style scoped>
@@ -52,8 +64,14 @@ transition: all 0.8s;
 transform: translateX(100%);
 opacity: 0;
 }
-</style>
 
+.testStyle {
+color: v-bind("finishedColor");
+position: relative;
+font-weight: bolder;
+font-size: larger;
+}
+</style>
 
 <template>
   <div style="position: relative; display: inline;"
@@ -70,6 +88,9 @@ opacity: 0;
       >
         <template #node-special="specialNodeProps">
           <SpecialNode v-bind="specialNodeProps" />
+        </template>
+        <template #node-action="actionNodeProps">
+          <ActionNode v-bind="actionNodeProps" />
         </template>
       </VueFlow>
     </div>
@@ -89,12 +110,11 @@ opacity: 0;
           style="position: relative; display: flex; width: 50px; height: 50px; left: 1%; top: 1%;"
           />
           <div
-          class="heading"
-          style="position: relative; font-weight: bolder; font-size: larger;"
+          class="testStyle"
           >
             {{ currentNode.label }}
           </div>
-          <p class="px-4 italic leading-relaxed">
+          <p>
             <"sem description">
           </p>
         </div>
