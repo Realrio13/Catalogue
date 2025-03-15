@@ -66,10 +66,16 @@ opacity: 0;
 }
 
 .testStyle {
-color: v-bind("finishedColor");
+color: color(v-bind("finishedColor"));
 position: relative;
 font-weight: bolder;
 font-size: larger;
+}
+
+.basicS{
+  text-align: left; 
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+  text-transform: none;
 }
 </style>
 
@@ -98,7 +104,7 @@ font-size: larger;
       <div
       v-if="showMenu"
       class="fixed right-0 top-0 z-50 flex h-screen w-96 flex-col items-left justify-center overflow-hidden bg-white p-6 shadow-xl dark:bg-slate-900 dark:shadow-slate-700"
-      style="position: fixed; background-color: wheat; right: 0; bottom: 0; width: 30%; height: 100%; justify-content: center;"
+      style="position: fixed; background-color: wheat; right: 0; bottom: 0; width: 30%; height: 100%; justify-content: center; overflow-y: scroll;"
       >
         <div
           class="absolute flex h-screen flex-col items-left justify-center gap-4 text-center"
@@ -114,8 +120,45 @@ font-size: larger;
           >
             {{ currentNode.label }}
           </div>
-          <p>
-            <"sem description">
+          <p
+          class="basicS">
+            {{ currentNode.description1 }}
+          </p>
+          <div
+          style="font-weight: bold;">
+            ***
+          </div>
+          <div
+          class="basicS"
+          style="font-weight: bold;">
+            {{ currentNode.description2 }}
+          </div>
+          <p
+          class="basicS">
+            {{ currentNode.description3 }}
+          </p>
+          <div
+          class="basicS"
+          style="font-weight: bold;">
+            Therefore:
+          </div>
+          <br>
+          <div
+          class="basicS"
+          style="font-weight: bold;">
+            {{ currentNode.description4 }}
+          </div>
+          <p
+          class="basicS">
+            {{ currentNode.description5 }}
+          </p>
+          <div
+          style="font-weight: bold;">
+            ***
+          </div>
+          <p
+          class="basicS">
+            {{ currentNode.description6 }}
           </p>
         </div>
       </div>
