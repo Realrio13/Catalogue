@@ -34,8 +34,8 @@ onInit((vueFlowInstance) => {
 
 function onNodeClick({ event, node }) {
   if (node.type == "special") {
-    console.log('Node clicked:', node.data.label, event);
-    currentNode = node.data;
+    console.log('Node clicked: ', node.data.label, event);
+    currentNode = node;
     showMenu.value = true;
     if (node.data.complete == false){
       finishedColor = 'red';
@@ -45,7 +45,13 @@ function onNodeClick({ event, node }) {
   else if (node.type == "Action"){
     // actions for calculate digital maturity and list view
   }
-  }
+}
+
+function finish({event, node}){
+  console.log("(Un)Finishing node: " , nodes.value[currentNode.id - 1].data.label)
+  nodes.value[currentNode.id - 1].data.complete = !nodes.value[currentNode.id - 1].data.complete
+  showMenu.value = false;
+}
 
 //style="position: relative; font-weight: bolder; font-size: larger; color: finishedColor ;"
 </script>
@@ -66,24 +72,30 @@ opacity: 0;
 }
 
 .testStyle {
-color: color(v-bind("finishedColor"));
 position: relative;
-font-weight: bolder;
-font-size: larger;
+font-weight: 900;
+font-size: x-large;
 }
 
 .basicS{
   text-align: left; 
   font-family: Georgia, 'Times New Roman', Times, serif; 
   text-transform: none;
+  padding-left: 8px;
 }
+
+.showMenuIncomplete{
+  background-color: rgb(255, 115, 115); 
+}
+.showMenuComplete{
+  background-color: rgb(115, 255, 115); 
+}
+
 </style>
 
 <template>
-  <div style="position: relative; display: inline;"
-  class="flex h-screen items-center justify-center rounded-lg p-4 md:justify-center md:p-16 dark:bg-slate-900 dark:text-white display: inline">
-    <div style="width: 1300px; height: 710px;"
-      class="flex flex-col divide-y divide-slate-300 overflow-hidden rounded-lg border border-slate-300 dark:divide-slate-600 dark:border-slate-600">
+  <div style="position: relative; display: inline;">
+    <div style="width: 1300px; height: 710px;">
       <VueFlow
         :nodes="nodes"
         :edges="edges"
@@ -103,26 +115,32 @@ font-size: larger;
     <Transition name="slide-fade">
       <div
       v-if="showMenu"
-      class="fixed right-0 top-0 z-50 flex h-screen w-96 flex-col items-left justify-center overflow-hidden bg-white p-6 shadow-xl dark:bg-slate-900 dark:shadow-slate-700"
-      style="position: fixed; background-color: wheat; right: 0; bottom: 0; width: 30%; height: 100%; justify-content: center; overflow-y: scroll;"
-      >
+      style="position: fixed; right: 0; bottom: 0; width: 30%; height: 100%; justify-content: center; overflow-y: scroll;"
+      :class="{showMenuIncomplete: !currentNode.data.complete, showMenuComplete: currentNode.data.complete }">
         <div
-          class="absolute flex h-screen flex-col items-left justify-center gap-4 text-center"
-          style="position: absolute; display: inline-block; left: 0; width: 100%; height: 100%; justify-content: center;"
-        >
+          style="position: absolute; display: inline-block; left: 0; width: 100%; height: 100%; justify-content: center;">
           <XMarkIcon
           @click="showMenu = false"
-          class="absolute left-4 top-4 size-6 cursor-pointer"
           style="position: relative; display: flex; width: 50px; height: 50px; left: 1%; top: 1%;"
           />
           <div
           class="testStyle"
           >
-            {{ currentNode.label }}
+            {{ currentNode.data.label }}
           </div>
+
+          <div
+          v-if="currentNode.data.complete">
+            Completed!
+          </div>
+          <div
+          v-else>
+            Scroll down to complete.
+          </div>
+
           <p
           class="basicS">
-            {{ currentNode.description1 }}
+            {{ currentNode.data.description1 }}
           </p>
           <div
           style="font-weight: bold;">
@@ -131,26 +149,26 @@ font-size: larger;
           <div
           class="basicS"
           style="font-weight: bold;">
-            {{ currentNode.description2 }}
+            {{ currentNode.data.description2 }}
           </div>
           <p
           class="basicS">
-            {{ currentNode.description3 }}
+            {{ currentNode.data.description3 }}
           </p>
           <div
           class="basicS"
-          style="font-weight: bold;">
+          style="font-weight: bold; padding-left: 15px;">
             Therefore:
           </div>
           <br>
           <div
           class="basicS"
           style="font-weight: bold;">
-            {{ currentNode.description4 }}
+            {{ currentNode.data.description4 }}
           </div>
           <p
           class="basicS">
-            {{ currentNode.description5 }}
+            {{ currentNode.data.description5 }}
           </p>
           <div
           style="font-weight: bold;">
@@ -158,9 +176,21 @@ font-size: larger;
           </div>
           <p
           class="basicS">
-            {{ currentNode.description6 }}
+            {{ currentNode.data.description6 }}
           </p>
+          <div
+          style="padding-bottom: 15px; margin-right: auto;">
+            <button @click="finish"
+            v-if="currentNode.data.complete">
+              Mark as incomplete
+            </button>
+            <button @click="finish"
+            v-else>
+              Mark as complete
+            </button>
+          </div>
         </div>
+        
       </div>
     </Transition>
   </div>

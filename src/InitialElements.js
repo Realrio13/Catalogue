@@ -1,6 +1,6 @@
 import { MarkerType } from '@vue-flow/core'
 
-export const initialNodes = [
+export var initialNodes = [
   {
     id: '1',
     type: 'special',    
