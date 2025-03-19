@@ -33,7 +33,7 @@ onInit((vueFlowInstance) => {
 })
 
 function onNodeClick({ event, node }) {
-  if (node.type == "special") {
+  if (node.type == "special" && !showMenu.value) {
     console.log('Node clicked: ', node.data.label, event);
     currentNode = node;
     showMenu.value = true;
@@ -44,6 +44,9 @@ function onNodeClick({ event, node }) {
   }
   else if (node.type == "Action"){
     // actions for calculate digital maturity and list view
+  }
+  else {
+    showMenu.value = false;
   }
 }
 
