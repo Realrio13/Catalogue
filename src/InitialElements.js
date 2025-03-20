@@ -206,7 +206,7 @@ export var initialNodes = [
     id: '11',
     type: 'special',
     data: { 
-      label: 'Data storage inadequacy', 
+      label: 'Digital storage inadequacy', 
       complete: false,
       description1: "...in the near past you have digitized large amounts of your physical data. In addition to clearing up a lot of space, digitizing has made it easier to access and search the data for your employees. It is important to keep improving your digital storage system, so you accidentally don't revert back to physical storage.",
       description2: "    No one gets the digital storage for their organization on the first try. Many new issues can arise from the creation of an entire new storage system. When digitizing, digital data can become inconsistent and include errors. If you choose to have multiple storage systems, they can be improperly connected and make it difficult to access data across your organization. Digital storage also tends to be slower and less efficient with huge amounts of data.",
@@ -594,10 +594,23 @@ export var initialNodes = [
         backgroundColor: 'lightblue',
         borderColor: 'black',
     },
-    position: { x: 0, y: 1200 },
+    position: { x: -100, y: 1200 },
     class: 'dark',
   },
 
+  {
+    id: '31',
+    type: 'action',
+    data: { 
+        label: 'Show list of patterns', 
+    },
+    style: {
+        backgroundColor: 'lightblue',
+        borderColor: 'black',
+    },
+    position: { x: 300, y: 1200 },
+    class: 'dark',
+  },
 ]
 
 export const initialEdges = [

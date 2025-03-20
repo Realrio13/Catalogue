@@ -7,12 +7,6 @@ import ActionNode from './components/ActionNode.vue'
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 import Slideover from './components/Slideover.vue'
 
-/**
- * `useVueFlow` provides:
- * 1. a set of methods to interact with the VueFlow instance (like `fitView`, `setViewport`, `addEdges`, etc)
- * 2. a set of event-hooks to listen to VueFlow events (like `onInit`, `onNodeDragStop`, `onConnect`, etc)
- * 3. the internal state of the VueFlow instance (like `nodes`, `edges`, `viewport`, etc)
- */
 const { onInit, onNodeDragStop} = useVueFlow()
 
 const nodes = ref(initialNodes)
@@ -21,12 +15,8 @@ const showMenu = ref(false);
 
 var currentNode = ref(null);
 var finishedColor = ref(null);
-/**
- * This is a Vue Flow event-hook which can be listened to from anywhere you call the composable, instead of only on the main component
- * Any event that is available as `@event-name` on the VueFlow component is also available as `onEventName` on the composable and vice versa
- *
- * onInit is called when the VueFlow viewport is initialized
- */
+var digMaturity = 0;
+
 onInit((vueFlowInstance) => {
   // instance is the same as the return of `useVueFlow`
   vueFlowInstance.fitView()
@@ -42,12 +32,62 @@ function onNodeClick({ event, node }) {
     }
     else finishedColor = 'green';
   }
-  else if (node.type == "Action"){
-    // actions for calculate digital maturity and list view
+  else if (node.type == "action"){
+    if (node.id == 30){
+      calculateDigitalMaturity();
+      if (digMaturity < 25) console.log("Infancy");
+      else if (digMaturity < 70 && digMaturity > 24) console.log("Establishment");
+      else if (digMaturity > 70) console.log("Optimisation");
+    }
+    else if (node.id == 31){
+      // show listof patterns
+    }
   }
   else {
     showMenu.value = false;
   }
+}
+
+function calculateDigitalMaturity(){
+  digMaturity = 0;
+  // check for unique fields
+  if (nodes.value[0].data.complete || nodes.value[1].data.complete) digMaturity+=2; // Implementation 1
+  if (nodes.value[2].data.complete) digMaturity+=2; // Data 1
+  if (nodes.value[6].data.complete) digMaturity+=2; // Security 1
+  if (nodes.value[4].data.complete || nodes.value[8].data.complete) digMaturity+=2; // Management 1
+  if (nodes.value[9].data.complete) digMaturity+=2; // Remote 1
+  if (nodes.value[5].data.complete) digMaturity+=2; // Automation 1
+  if (nodes.value[14].data.complete) digMaturity+=2; // Customer 1
+
+  if (nodes.value[3].data.complete || nodes.value[7].data.complete) digMaturity+=2; // Implementation 2
+  if (nodes.value[10].data.complete) digMaturity+=2; // Data 2
+  if (nodes.value[13].data.complete) digMaturity+=2; // Security 2
+  if (nodes.value[15].data.complete || nodes.value[11].data.complete) digMaturity+=2; // Management 2
+  if (nodes.value[16].data.complete) digMaturity+=2; // Remote 2
+  if (nodes.value[12].data.complete) digMaturity+=2; // Automation 2
+  if (nodes.value[20].data.complete) digMaturity+=2; // Customer 2
+
+  if (nodes.value[25].data.complete || nodes.value[28].data.complete) digMaturity+=2; // Implementation 3
+  if (nodes.value[17].data.complete) digMaturity+=2; // Data 3
+  if (nodes.value[19].data.complete) digMaturity+=2; // Security 3
+  if (nodes.value[27].data.complete || nodes.value[21].data.complete) digMaturity+=2; // Management 3
+  if (nodes.value[24].data.complete || nodes.value[22].data.complete) digMaturity+=2; // Remote 3
+  if (nodes.value[23].data.complete || nodes.value[18].data.complete) digMaturity+=2; // Automation 3
+  if (nodes.value[26].data.complete) digMaturity+=2; // Customer 3
+
+  // values for individual patterns
+  for (let i = 0; i<29; i++){
+    if ([0,1,2,6,4,8,9,5,14].includes(i)){
+      if (nodes.value[i].data.complete) digMaturity+=1; // infancy
+    }
+    else if ([3,7,10,13,15,11,16,12,20].includes(i)){
+      if (nodes.value[i].data.complete) digMaturity+=2; // establishment
+    }
+    else if ([25,28,17,19,27,21,24,22,23,18,26].includes(i)){
+      if (nodes.value[i].data.complete) digMaturity+=3; // optimisation
+    }
+  }
+  console.log(digMaturity);
 }
 
 function finish({event, node}){
@@ -56,7 +96,6 @@ function finish({event, node}){
   showMenu.value = false;
 }
 
-//style="position: relative; font-weight: bolder; font-size: larger; color: finishedColor ;"
 </script>
 
 <style scoped>
