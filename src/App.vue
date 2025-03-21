@@ -5,13 +5,13 @@ import { initialEdges, initialNodes } from './InitialElements.js'
 import SpecialNode from './components/SpecialNode.vue'
 import ActionNode from './components/ActionNode.vue'
 import { XMarkIcon } from "@heroicons/vue/24/outline";
-import Slideover from './components/Slideover.vue'
 
 const { onInit, onNodeDragStop} = useVueFlow()
 
 const nodes = ref(initialNodes)
 const edges = ref(initialEdges)
 const showMenu = ref(false);
+const showCalc = ref(false);
 
 var currentNode = ref(null);
 var finishedColor = ref(null);
@@ -38,6 +38,7 @@ function onNodeClick({ event, node }) {
       if (digMaturity < 25) console.log("Infancy");
       else if (digMaturity < 70 && digMaturity > 24) console.log("Establishment");
       else if (digMaturity > 70) console.log("Optimisation");
+      showCalc.value = true;
     }
     else if (node.id == 31){
       // show listof patterns
@@ -87,7 +88,7 @@ function calculateDigitalMaturity(){
       if (nodes.value[i].data.complete) digMaturity+=3; // optimisation
     }
   }
-  console.log(digMaturity);
+  console.log("Points:", digMaturity);
 }
 
 function finish({event, node}){
@@ -136,6 +137,12 @@ font-size: x-large;
 </style>
 
 <template>
+  <div
+  v-if="showCalc"
+  style="position: fixed; width: 100%; height: 100%; background-color: wheat;"
+  @click="showCalc = false">
+  
+  </div>
   <div style="position: relative; display: inline;">
     <div style="width: 1300px; height: 710px;">
       <VueFlow
