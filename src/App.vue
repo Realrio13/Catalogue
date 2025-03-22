@@ -16,6 +16,10 @@ const showCalc = ref(false);
 var currentNode = ref(null);
 var finishedColor = ref(null);
 var digMaturity = 0;
+var digMatStage = ref(null)
+var digValues = [];
+
+var nextStageText = "";
 
 onInit((vueFlowInstance) => {
   // instance is the same as the return of `useVueFlow`
@@ -35,9 +39,19 @@ function onNodeClick({ event, node }) {
   else if (node.type == "action"){
     if (node.id == 30){
       calculateDigitalMaturity();
-      if (digMaturity < 25) console.log("Infancy");
-      else if (digMaturity < 70 && digMaturity > 24) console.log("Establishment");
-      else if (digMaturity > 70) console.log("Optimisation");
+      if (digMaturity < 25) {
+        digMatStage.value = "Infancy";
+        nextStageText = "25 or more points reqired for Establishment"
+      }
+      else if (digMaturity < 70 && digMaturity > 24) {
+        digMatStage.value = "Establishment";
+        nextStageText = "70 or more points reqired for Optimisation"
+      }
+      else if (digMaturity > 70) {
+        digMatStage.value = "Optimisation";
+        nextStageText = "You have reached the final stage of digital maturity; Well done!"
+      }
+      console.log(digMatStage.value);
       showCalc.value = true;
     }
     else if (node.id == 31){
@@ -50,45 +64,54 @@ function onNodeClick({ event, node }) {
 }
 
 function calculateDigitalMaturity(){
-  digMaturity = 0;
+  digValues = [0,0,0,0,0,0,0];
   // check for unique fields
-  if (nodes.value[0].data.complete || nodes.value[1].data.complete) digMaturity+=2; // Implementation 1
-  if (nodes.value[2].data.complete) digMaturity+=2; // Data 1
-  if (nodes.value[6].data.complete) digMaturity+=2; // Security 1
-  if (nodes.value[4].data.complete || nodes.value[8].data.complete) digMaturity+=2; // Management 1
-  if (nodes.value[9].data.complete) digMaturity+=2; // Remote 1
-  if (nodes.value[5].data.complete) digMaturity+=2; // Automation 1
-  if (nodes.value[14].data.complete) digMaturity+=2; // Customer 1
+  if (nodes.value[0].data.complete || nodes.value[1].data.complete) digValues[0]+=2; // Implementation 1
+  if (nodes.value[2].data.complete) digValues[1]+=2; // Data 1
+  if (nodes.value[6].data.complete) digValues[2]+=2; // Security 1
+  if (nodes.value[4].data.complete || nodes.value[8].data.complete) digValues[3]+=2; // Management 1
+  if (nodes.value[9].data.complete) digValues[4]+=2; // Remote 1
+  if (nodes.value[5].data.complete) digValues[5]+=2; // Automation 1
+  if (nodes.value[14].data.complete) digValues[6]+=2; // Customer 1
 
-  if (nodes.value[3].data.complete || nodes.value[7].data.complete) digMaturity+=2; // Implementation 2
-  if (nodes.value[10].data.complete) digMaturity+=2; // Data 2
-  if (nodes.value[13].data.complete) digMaturity+=2; // Security 2
-  if (nodes.value[15].data.complete || nodes.value[11].data.complete) digMaturity+=2; // Management 2
-  if (nodes.value[16].data.complete) digMaturity+=2; // Remote 2
-  if (nodes.value[12].data.complete) digMaturity+=2; // Automation 2
-  if (nodes.value[20].data.complete) digMaturity+=2; // Customer 2
+  if (nodes.value[3].data.complete || nodes.value[7].data.complete) digValues[0]+=2; // Implementation 2
+  if (nodes.value[10].data.complete) digValues[1]+=2; // Data 2
+  if (nodes.value[13].data.complete) digValues[2]+=2; // Security 2
+  if (nodes.value[15].data.complete || nodes.value[11].data.complete) digValues[3]+=2; // Management 2
+  if (nodes.value[16].data.complete) digValues[4]+=2; // Remote 2
+  if (nodes.value[12].data.complete) digValues[5]+=2; // Automation 2
+  if (nodes.value[20].data.complete) digValues[6]+=2; // Customer 2
 
-  if (nodes.value[25].data.complete || nodes.value[28].data.complete) digMaturity+=2; // Implementation 3
-  if (nodes.value[17].data.complete) digMaturity+=2; // Data 3
-  if (nodes.value[19].data.complete) digMaturity+=2; // Security 3
-  if (nodes.value[27].data.complete || nodes.value[21].data.complete) digMaturity+=2; // Management 3
-  if (nodes.value[24].data.complete || nodes.value[22].data.complete) digMaturity+=2; // Remote 3
-  if (nodes.value[23].data.complete || nodes.value[18].data.complete) digMaturity+=2; // Automation 3
-  if (nodes.value[26].data.complete) digMaturity+=2; // Customer 3
+  if (nodes.value[25].data.complete || nodes.value[28].data.complete) digValues[0]+=2; // Implementation 3
+  if (nodes.value[17].data.complete) digValues[1]+=2; // Data 3
+  if (nodes.value[19].data.complete) digValues[2]+=2; // Security 3
+  if (nodes.value[27].data.complete || nodes.value[21].data.complete) digValues[3]+=2; // Management 3
+  if (nodes.value[24].data.complete || nodes.value[22].data.complete) digValues[4]+=2; // Remote 3
+  if (nodes.value[23].data.complete || nodes.value[18].data.complete) digValues[5]+=2; // Automation 3
+  if (nodes.value[26].data.complete) digValues[6]+=2; // Customer 3
 
   // values for individual patterns
+  var pts = 0;
   for (let i = 0; i<29; i++){
-    if ([0,1,2,6,4,8,9,5,14].includes(i)){
-      if (nodes.value[i].data.complete) digMaturity+=1; // infancy
-    }
-    else if ([3,7,10,13,15,11,16,12,20].includes(i)){
-      if (nodes.value[i].data.complete) digMaturity+=2; // establishment
-    }
-    else if ([25,28,17,19,27,21,24,22,23,18,26].includes(i)){
-      if (nodes.value[i].data.complete) digMaturity+=3; // optimisation
-    }
+    if ([0,1,2,6,4,8,9,5,14].includes(i)) pts = 1; // infancy
+    else if ([3,7,10,13,15,11,16,12,20].includes(i)) pts = 2; // establishment
+    else if ([25,28,17,19,27,21,24,22,23,18,26].includes(i)) pts = 3; // optimisation
+
+    if ([0,1,3,7,25,28].includes(i) && nodes.value[i].data.complete) digValues[0]+=pts;
+    if ([2,10,17].includes(i) && nodes.value[i].data.complete) digValues[1]+=pts;
+    if ([6,13,19].includes(i) && nodes.value[i].data.complete) digValues[2]+=pts;
+    if ([4,8,15,11,27,21].includes(i) && nodes.value[i].data.complete) digValues[3]+=pts;
+    if ([9,16,24,22].includes(i) && nodes.value[i].data.complete) digValues[4]+=pts;
+    if ([5,12,23,18].includes(i) && nodes.value[i].data.complete) digValues[5]+=pts;
+    if ([14,20,26].includes(i) && nodes.value[i].data.complete) digValues[6]+=pts;
+    
   }
+
+  digMaturity = digValues[0] + digValues[1] + digValues[2] + digValues[3] + digValues[4] + digValues[5] + digValues[6]
+
   console.log("Points:", digMaturity);
+
+
 }
 
 function finish({event, node}){
@@ -137,14 +160,73 @@ font-size: x-large;
 </style>
 
 <template>
-  <div
-  v-if="showCalc"
-  style="position: fixed; width: 100%; height: 100%; background-color: wheat;"
-  @click="showCalc = false">
-  
-  </div>
+  <v-overlay
+  v-model="showCalc"
+  style="align-items: center; justify-content: center;">
+    <v-sheet
+    rounded="rounded"
+    style="width: 700px; height: 450px; justify-content: center;">
+      <h3
+      class="basicS"
+      style="text-align: center; padding-top: 8px;">
+        Your digital maturity stage is...
+      </h3>
+      <h1
+      class="basicS"
+      style="text-align: center; padding-bottom: 10px;">
+        {{digMatStage}}
+      </h1>
+      <p
+      style="padding-left: 30px; padding-bottom: 8px;">
+        {{digValues[0]}} points from Implementation aspect
+      </p>
+      <p
+      style="padding-left: 30px; padding-bottom: 8px;">
+        {{digValues[1]}} points from Data aspect
+      </p>
+      <p
+      style="padding-left: 30px; padding-bottom: 8px;">
+        {{digValues[2]}} points from Security aspect
+      </p>
+      <p
+      style="padding-left: 30px; padding-bottom: 8px;">
+        {{digValues[3]}} points from Management aspect
+      </p>
+      <p
+      style="padding-left: 30px; padding-bottom: 8px;">
+        {{digValues[4]}} points from Remote work aspect
+      </p>
+      <p
+      style="padding-left: 30px; padding-bottom: 8px;">
+        {{digValues[5]}} points from Automation aspect
+      </p>
+      <p
+      style="padding-left: 30px; padding-bottom: 15px;">
+        {{digValues[6]}} points from Customer interaction aspect
+      </p>
+      <h3
+      style="padding-left: 50px; padding-bottom: 8px; font-weight: bold;">
+        Total points: {{ digMaturity }}
+      </h3>
+      <p
+      style="padding-left: 55px; padding-bottom: 12px;">
+        {{ nextStageText }}
+      </p>
+      <div
+      style="padding-left: 25px;">
+        <v-btn
+        rounded="lg"
+        style="padding: 5px; width:60px"
+        @click="showCalc = false">
+          Back
+        </v-btn>  
+      </div>
+    </v-sheet>
+  </v-overlay>
+
+
   <div style="position: relative; display: inline;">
-    <div style="width: 1300px; height: 710px;">
+    <div style="width: 1500px; height: 710px;">
       <VueFlow
         :nodes="nodes"
         :edges="edges"
@@ -229,14 +311,16 @@ font-size: x-large;
           </p>
           <div
           style="padding-bottom: 15px; margin-right: auto;">
-            <button @click="finish"
+            <v-btn @click="finish"
+            rounded="lg"
             v-if="currentNode.data.complete">
               Mark as incomplete
-            </button>
-            <button @click="finish"
+            </v-btn>
+            <v-btn @click="finish"
+            rounded="lg"
             v-else>
               Mark as complete
-            </button>
+            </v-btn>
           </div>
         </div>
         
