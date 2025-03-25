@@ -12,11 +12,17 @@ const nodes = ref(initialNodes)
 const edges = ref(initialEdges)
 const showMenu = ref(false);
 const showCalc = ref(false);
+const showList = ref(false);
+
+var patternTable = [{
+    Name: '',
+    Completed: false,
+}];
 
 var currentNode = ref(null);
 var finishedColor = ref(null);
 var digMaturity = 0;
-var digMatStage = ref(null)
+var digMatStage = ref(null);
 var digValues = [];
 
 var nextStageText = "";
@@ -55,11 +61,25 @@ function onNodeClick({ event, node }) {
       showCalc.value = true;
     }
     else if (node.id == 31){
-      // show listof patterns
+      prepareTable();
+      showList.value = true;
     }
   }
   else {
     showMenu.value = false;
+  }
+}
+
+function prepareTable(){
+  patternTable = [{}]
+  
+  for (let i = 0; i<29; i++){
+    patternTable.push({
+      Name: '',
+      Completed: false,
+    });
+    patternTable[i].Name=nodes.value[i].data.label;
+    patternTable[i].Completed=nodes.value[i].data.complete;
   }
 }
 
@@ -160,6 +180,32 @@ font-size: x-large;
 </style>
 
 <template>
+  
+  <v-overlay
+  v-model="showList"
+  style="align-items: center; justify-content: center;"
+  @click="showList = false"
+  >
+    <v-sheet
+    rounded="rounded"
+    style="width: 700px; height: 450px; justify-content: center;">
+      <h1
+      class="basicS"
+      style="text-align: center; padding-bottom: 10px;">
+        List of all patterns
+      </h1>
+      <v-data-table :items="patternTable" hide-default-footer>
+        <template v-slot:item.Completed="{ item }">
+          <v-checkbox-btn
+            v-model="item.Completed"
+            :ripple="false"
+          ></v-checkbox-btn>
+        </template>
+      </v-data-table>
+
+    </v-sheet>
+  </v-overlay>
+  
   <v-overlay
   v-model="showCalc"
   style="align-items: center; justify-content: center;">
