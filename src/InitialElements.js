@@ -39,7 +39,7 @@ export var initialNodes = [
       backgroundColor: 'lightgreen',
       borderColor: 'darkgreen',
     },
-    position: { x: 600, y: 140 },
+    position: { x: 600, y: 180 },
     class: 'light',
   },
   {
@@ -59,7 +59,7 @@ export var initialNodes = [
       backgroundColor: 'lightgreen',
       borderColor: 'darkblue',
     },
-    position: { x: 200, y: 200 },
+    position: { x: 200, y: 220 },
     class: 'light',
   },
   {
@@ -79,7 +79,7 @@ export var initialNodes = [
       backgroundColor: 'yellow',
       borderColor: 'darkgreen',
     },
-    position: { x: 400, y: 200 },
+    position: { x: 400, y: 220 },
     class: 'light',
   },
   {
@@ -99,7 +99,7 @@ export var initialNodes = [
       backgroundColor: 'lightgreen',
       borderColor: 'tomato',
     },
-    position: { x: 800, y: 200 },
+    position: { x: 800, y: 220 },
     class: 'light',
   },
   {
@@ -119,7 +119,7 @@ export var initialNodes = [
       backgroundColor: 'lightgreen',
       borderColor: 'orange',
     },
-    position: { x: 0, y: 300 },
+    position: { x: 0, y: 370 },
     class: 'light',
   },
   {
@@ -139,7 +139,7 @@ export var initialNodes = [
       backgroundColor: 'lightgreen',
       borderColor: 'black',
     },
-    position: { x: 400, y: 330 },
+    position: { x: 400, y: 380 },
     class: 'light',
   },
   {
@@ -159,7 +159,7 @@ export var initialNodes = [
       backgroundColor: 'yellow',
       borderColor: 'darkgreen',
     },
-    position: { x: 600, y: 380 },
+    position: { x: 600, y: 430 },
     class: 'light',
   },
   {
@@ -179,7 +179,7 @@ export var initialNodes = [
       backgroundColor: 'lightgreen',
       borderColor: 'tomato',
     },
-    position: { x: 1000, y: 300 },
+    position: { x: 1000, y: 370 },
     class: 'light',
   },
   {
@@ -199,7 +199,7 @@ export var initialNodes = [
       backgroundColor: 'lightgreen',
       borderColor: 'darkred',
     },
-    position: { x: 1200, y: 300 },
+    position: { x: 1200, y: 370 },
     class: 'light',
   },
   {
@@ -219,7 +219,7 @@ export var initialNodes = [
       backgroundColor: 'yellow',
       borderColor: 'darkblue',
     },
-    position: { x: 200, y: 400 },
+    position: { x: 200, y: 500 },
     class: 'light',
   },
   {
@@ -239,7 +239,7 @@ export var initialNodes = [
       backgroundColor: 'yellow',
       borderColor: 'tomato',
     },
-    position: { x: 800, y: 380 },
+    position: { x: 800, y: 490 },
     class: 'light',
   },
   {
@@ -259,7 +259,7 @@ export var initialNodes = [
       backgroundColor: 'yellow',
       borderColor: 'orange',
     },
-    position: { x: 0, y: 500 },
+    position: { x: 0, y: 580 },
     class: 'light',
   },
   {
@@ -279,7 +279,7 @@ export var initialNodes = [
       backgroundColor: 'yellow',
       borderColor: 'black',
     },
-    position: { x: 400, y: 500 },
+    position: { x: 400, y: 620 },
     class: 'light',
   },
   {
@@ -299,7 +299,7 @@ export var initialNodes = [
       backgroundColor: 'lightgreen',
       borderColor: 'purple',
     },
-    position: { x: 600, y: 500 },
+    position: { x: 600, y: 580 },
     class: 'light',
   },
   {
@@ -319,7 +319,7 @@ export var initialNodes = [
       backgroundColor: 'yellow',
       borderColor: 'tomato',
     },
-    position: { x: 1000, y: 500 },
+    position: { x: 1000, y: 530 },
     class: 'light',
   },
   {
@@ -339,7 +339,7 @@ export var initialNodes = [
       backgroundColor: 'yellow',
       borderColor: 'darkred',
     },
-    position: { x: 1200, y: 500 },
+    position: { x: 1200, y: 530 },
     class: 'light',
   },
   {
@@ -359,7 +359,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'darkblue',
     },
-    position: { x: 200, y: 600 },
+    position: { x: 200, y: 750 },
     class: 'light',
   },
   {
@@ -379,7 +379,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'orange',
     },
-    position: { x: 0, y: 720 },
+    position: { x: 0, y: 780 },
     class: 'light',
   },
   {
@@ -399,7 +399,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'black',
     },
-    position: { x: 400, y: 700 },
+    position: { x: 400, y: 830 },
     class: 'light',
   },
   {
@@ -419,7 +419,7 @@ export var initialNodes = [
       backgroundColor: 'yellow',
       borderColor: 'purple',
     },
-    position: { x: 600, y: 700 },
+    position: { x: 600, y: 750 },
     class: 'light',
   },
   {
@@ -439,7 +439,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'tomato',
     },
-    position: { x: 1000, y: 700 },
+    position: { x: 920, y: 700 },
     class: 'light',
   },
   {
@@ -459,7 +459,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'darkred',
     },
-    position: { x: 1200, y: 700 },
+    position: { x: 1120, y: 700 },
     class: 'light',
   },
   {
@@ -479,7 +479,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'darkblue',
     },
-    position: { x: 200, y: 750 },
+    position: { x: 200, y: 960 },
     class: 'light',
   },
   {
@@ -499,7 +499,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'darkred',
     },
-    position: { x: 1100, y: 800 },
+    position: { x: 1000, y: 830 },
     class: 'light',
   },
   {
@@ -519,7 +519,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'darkgreen',
     },
-    position: { x: 400, y: 860 },
+    position: { x: 400, y: 960 },
     class: 'light',
   },
   {
@@ -539,7 +539,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'purple',
     },
-    position: { x: 600, y: 900 },
+    position: { x: 600, y: 960 },
     class: 'light',
   },
   {
@@ -559,7 +559,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'tomato',
     },
-    position: { x: 800, y: 900 },
+    position: { x: 800, y: 960 },
     class: 'light',
   },
   {
@@ -579,7 +579,7 @@ export var initialNodes = [
       backgroundColor: '#e84650',
       borderColor: 'darkgreen',
     },
-    position: { x: 400, y: 1000 },
+    position: { x: 400, y: 1170 },
     class: 'light',
   },
 
@@ -608,7 +608,7 @@ export var initialNodes = [
         backgroundColor: 'lightblue',
         borderColor: 'black',
     },
-    position: { x: 300, y: 1200 },
+    position: { x: 160, y: 1200 },
     class: 'dark',
   },
 ]

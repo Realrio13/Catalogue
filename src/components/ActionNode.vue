@@ -19,6 +19,6 @@ const y = computed(() => `${Math.round(props.position.y)}px`)
 
 <template>
   <div>
-    <div>{{ props.data.label }}</div>
+    <p>{{ props.data.label }}</p>
   </div>
 </template>
