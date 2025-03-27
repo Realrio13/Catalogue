@@ -13,11 +13,12 @@ const edges = ref(initialEdges)
 const showMenu = ref(false);
 const showCalc = ref(false);
 const showList = ref(false);
+const search = ref('')
 
-var patternTable = [{
+const patternTable = ref([{
     Name: '',
     Completed: false,
-}];
+}]);
 
 var currentNode = ref(null);
 var finishedColor = ref(null);
@@ -61,25 +62,12 @@ function onNodeClick({ event, node }) {
       showCalc.value = true;
     }
     else if (node.id == 31){
-      prepareTable();
       showList.value = true;
+      console.log(search)
     }
   }
   else {
     showMenu.value = false;
-  }
-}
-
-function prepareTable(){
-  patternTable = [{}]
-  
-  for (let i = 0; i<29; i++){
-    patternTable.push({
-      Name: '',
-      Completed: false,
-    });
-    patternTable[i].Name=nodes.value[i].data.label;
-    patternTable[i].Completed=nodes.value[i].data.complete;
   }
 }
 
@@ -140,6 +128,17 @@ function finish({event, node}){
   showMenu.value = false;
 }
 
+function combinedSearch (value, query, item) {
+  return typeof value === 'string' && item.key < 30 && value.toString().toLocaleUpperCase().indexOf(query.toLocaleUpperCase()) !== -1
+}
+
+const headers = [
+  {title:'Name', key:'data.label', sortable: false},
+  {title:'Model step', key:'data.step', sortable: false},
+  {title:'Pattern aspect', key:'data.aspect', sortable: false},
+  {title:'Completed', key:'data.complete', sortable: false},
+]
+
 </script>
 
 <style scoped>
@@ -177,6 +176,12 @@ font-size: x-large;
   background-color: rgb(115, 255, 115); 
 }
 
+.buttonStyle1{
+  left: 5%;
+  color: black;
+  background-color: lightblue;
+}
+
 </style>
 
 <template>
@@ -184,25 +189,47 @@ font-size: x-large;
   <v-overlay
   v-model="showList"
   style="align-items: center; justify-content: center;"
-  @click="showList = false"
   >
     <v-sheet
     rounded="rounded"
-    style="width: 700px; height: 450px; justify-content: center;">
+    style="width: 700px; height: 450px; justify-content: center; overflow-y: scroll;">
       <h1
       class="basicS"
       style="text-align: center; padding-bottom: 10px;">
         List of all patterns
       </h1>
-      <v-data-table :items="patternTable" hide-default-footer>
-        <template v-slot:item.Completed="{ item }">
-          <v-checkbox-btn
-            v-model="item.Completed"
+      <v-btn @click="showList = false"
+      rounded="lg"
+      class="buttonStyle1">
+        Back
+      </v-btn>
+      <v-data-table 
+      :items="nodes" 
+      :headers="headers"
+      :items-per-page=29
+      :custom-filter="combinedSearch"
+      :search="search"
+      hide-default-footer>
+        <template v-slot:top>
+          <v-text-field
+            v-model="search"
+            class="pa-2"
+            label="Search"
+          ></v-text-field>
+        </template>
+        <template v-slot:item.data.complete="{ item }">
+          <v-checkbox
+            v-model="item.data.complete"
             :ripple="false"
-          ></v-checkbox-btn>
+          ></v-checkbox>
         </template>
       </v-data-table>
-
+      <v-btn @click="showList = false"
+      rounded="lg"
+      class="buttonStyle1">
+        Back
+      </v-btn>
+      <div style="padding-bottom: 15px;"></div>
     </v-sheet>
   </v-overlay>
   
