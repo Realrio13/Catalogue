@@ -63,7 +63,6 @@ function onNodeClick({ event, node }) {
     }
     else if (node.id == 31){
       showList.value = true;
-      console.log(search)
     }
   }
   else {
@@ -130,6 +129,18 @@ function finish({event, node}){
 
 function combinedSearch (value, query, item) {
   return typeof value === 'string' && item.key < 30 && value.toString().toLocaleUpperCase().indexOf(query.toLocaleUpperCase()) !== -1
+}
+
+function openPatternFromTable(value, item){
+  if (value.srcElement.type != "checkbox"){
+    currentNode = item.item;
+    showList.value = false;
+    showMenu.value = true;
+  }
+}
+
+function handleFocusOut(){
+  showMenu.value = false;
 }
 
 const headers = [
@@ -209,6 +220,7 @@ font-size: x-large;
       :items-per-page=29
       :custom-filter="combinedSearch"
       :search="search"
+      @click:row="openPatternFromTable"
       hide-default-footer>
         <template v-slot:top>
           <v-text-field
@@ -320,7 +332,9 @@ font-size: x-large;
       <div
       v-if="showMenu"
       style="position: fixed; right: 0; bottom: 0; width: 30%; height: 100%; justify-content: center; overflow-y: scroll;"
-      :class="{showMenuIncomplete: !currentNode.data.complete, showMenuComplete: currentNode.data.complete }">
+      :class="{showMenuIncomplete: !currentNode.data.complete, showMenuComplete: currentNode.data.complete }"
+      @focusout="handleFocusOut"
+      tabindex="0">
         <div
           style="position: absolute; display: inline-block; left: 0; width: 100%; height: 100%; justify-content: center;">
           <XMarkIcon
