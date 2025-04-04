@@ -59,9 +59,11 @@ function onNodeClick({ event, node }) {
         nextStageText = "You have reached the final stage of digital maturity; Well done!"
       }
       console.log(digMatStage.value);
+      showMenu.value = false;
       showCalc.value = true;
     }
     else if (node.id == 31){
+      showMenu.value = false;
       showList.value = true;
     }
   }
