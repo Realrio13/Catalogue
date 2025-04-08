@@ -4,6 +4,9 @@ import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { initialEdges, initialNodes } from './InitialElements.js'
 import SpecialNode from './components/SpecialNode.vue'
 import ActionNode from './components/ActionNode.vue'
+import help1 from './components/icons/help1.png'
+import help2 from './components/icons/help2.png'
+import help3 from './components/icons/help3.png'
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 
 const { onInit, onNodeDragStop} = useVueFlow()
@@ -239,7 +242,7 @@ font-size: x-large;
           The patterns are further divided according to the aspect of digital maturity. An aspect represents a certain closed area within the digital transformation. According to these aspects, the patterns have different border colors. For example, the borders of the patterns of the Remote work aspect are marked in dark blue, and the patterns of the Security aspect have a black border.
         </p>
       <div
-      style="position: relative; display: inline-block; left: 0; width: 100%; height: 100%; justify-content: center;">
+      style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center;">
         <v-btn @click="helpPage = helpPage+1"
         rounded="lg"
         style="bottom: 0%; position: relative; display: inline; left: 85%;"
@@ -252,7 +255,7 @@ font-size: x-large;
     <v-sheet
     v-if="helpPage==1"
     rounded="rounded"
-    style="width: 700px; height: 490px; justify-content: center; overflow-y: scroll;">
+    style="width: 700px; height: 520px; justify-content: center; overflow-y: scroll;">
       <div
       style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
         <XMarkIcon
@@ -270,10 +273,16 @@ font-size: x-large;
         style="padding-left: 12px; padding-right: 10px; padding-bottom: 8px;">
           If your organization has already used one of the patterns or otherwise solved the problem described in the pattern, you can mark the pattern as completed. You can do so by pressing the button at the bottom of the organizational pattern. All completed patterns will later count towards your digital maturity score.
         </p>
+        <v-img
+        :width="600"
+        :src="help1"
+        style="align-self: center; padding-bottom: 20px; justify-self: center;">
+
+        </v-img>
       <div
       style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center;"
       >
-        <v-btn @click="helpPage = helpPage+1"
+        <v-btn @click="helpPage = helpPage-1"
         rounded="lg"
         style="bottom: 0%; position: relative; display: inline;"
         class="buttonStyle1">
@@ -288,6 +297,91 @@ font-size: x-large;
       </div>
     </v-sheet>
 
+    <v-sheet
+    v-if="helpPage==2"
+    rounded="rounded"
+    style="width: 700px; height: 460px; justify-content: center; overflow-y: scroll;">
+      <div
+      style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
+        <XMarkIcon
+        @click="showHelp = false"
+        style="position: relative; display: inline; width: 50px; height: 50px; left: 1%; top: 1%;"
+        />
+        <h1
+        style="position: relative; display: inline; align-self: center; left: 38%;"
+        class="testStyle">
+          Help
+        </h1>
+      </div
+      style="position: relative; padding: 8px;">
+        <p 
+        style="padding-left: 12px; padding-right: 10px; padding-bottom: 8px;">
+          If you want to see our organizational patterns in a clearer list, you can press the 'Show list of patterns' button. Here you can search for patterns by name, relevant aspect or stage of digital maturity. If you are already more familiar with our organizational patterns, you can also mark several of them faster in this list.
+        </p>
+        <v-img
+        :width="600"
+        :src="help2"
+        style="align-self: center; padding-bottom: 20px; justify-self: center;">
+        </v-img>
+      <div
+      style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center;"
+      >
+        <v-btn @click="helpPage = helpPage-1"
+        rounded="lg"
+        style="bottom: 0%; position: relative; display: inline;"
+        class="buttonStyle1">
+          Back
+        </v-btn>
+        <v-btn @click="helpPage = helpPage+1"
+        rounded="lg"
+        style="bottom: 0%; position: relative; display: inline; left: 70%;"
+        class="buttonStyle1">
+          Next
+        </v-btn>
+      </div>
+    </v-sheet>
+
+    <v-sheet
+    v-if="helpPage==3"
+    rounded="rounded"
+    style="width: 700px; height: 540px; justify-content: center; overflow-y: scroll;">
+      <div
+      style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
+        <XMarkIcon
+        @click="showHelp = false"
+        style="position: relative; display: inline; width: 50px; height: 50px; left: 1%; top: 1%;"
+        />
+        <h1
+        style="position: relative; display: inline; align-self: center; left: 38%;"
+        class="testStyle">
+          Help
+        </h1>
+      </div
+      style="position: relative; padding: 8px;">
+        <p 
+        style="padding-left: 12px; padding-right: 10px; padding-bottom: 8px;">
+        Once you have marked all the completed patterns, click on the 'Calculate digital maturity' button. Subsequently, the application calculates the number of points obtained and your level of digital maturity based on our digital maturity model. The application will take into account only the completed patterns. You can also see how many points you have earned in each aspect of digital maturity.
+        </p>
+        <v-img
+        :width="600"
+        :src="help3"
+        style="align-self: center; padding-bottom: 20px; justify-self: center;">
+        </v-img>
+        <p 
+        style="padding-left: 12px; padding-right: 10px; padding-bottom: 8px;">
+        You can always go back and read or complete more patterns. We suggest that you prioritize patterns in aspects that are a priority for your organization.
+        </p>
+      <div
+      style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center;"
+      >
+        <v-btn @click="helpPage = helpPage-1"
+        rounded="lg"
+        style="bottom: 0%; position: relative; display: inline;"
+        class="buttonStyle1">
+          Back
+        </v-btn>
+      </div>
+    </v-sheet>
 
   </v-overlay>
 
@@ -298,16 +392,18 @@ font-size: x-large;
     <v-sheet
     rounded="rounded"
     style="width: 700px; height: 450px; justify-content: center; overflow-y: scroll;">
-      <h1
-      class="basicS"
-      style="text-align: center; padding-bottom: 10px;">
-        List of all patterns
-      </h1>
-      <v-btn @click="showList = false"
-      rounded="lg"
-      class="buttonStyle1">
-        Back
-      </v-btn>
+      <div
+      style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
+        <XMarkIcon
+        @click="showList = false"
+        style="position: relative; display: inline; width: 50px; height: 50px; left: 1%; top: 1%;"
+        />
+        <h1
+        class="basicS"
+        style="text-align: center; padding-bottom: 10px;">
+          List of all patterns
+        </h1>
+      </div>
       <v-data-table 
       :items="nodes" 
       :headers="headers"
@@ -405,23 +501,22 @@ font-size: x-large;
 
 
   <div style="position: relative; display: inline;">
-    <div style="width: 1500px; height: 710px;">
-      <VueFlow
-        :nodes="nodes"
-        :edges="edges"
-        :default-viewport="{ zoom: 1 }"
-        :min-zoom="0.2"
-        :max-zoom="4"
-        @node-click="onNodeClick"
-      >
-        <template #node-special="specialNodeProps">
-          <SpecialNode v-bind="specialNodeProps" />
-        </template>
-        <template #node-action="actionNodeProps">
-          <ActionNode v-bind="actionNodeProps" />
-        </template>
-      </VueFlow>
-    </div>
+    <VueFlow
+      :nodes="nodes"
+      :edges="edges"
+      :default-viewport="{ zoom: 1 }"
+      :min-zoom="0.2"
+      :max-zoom="4"
+      @node-click="onNodeClick"
+      style="width: 100%; height: 900px;"
+    >
+      <template #node-special="specialNodeProps">
+        <SpecialNode v-bind="specialNodeProps" />
+      </template>
+      <template #node-action="actionNodeProps">
+        <ActionNode v-bind="actionNodeProps" />
+      </template>
+    </VueFlow>
     <Transition name="slide-fade">
       <div
       v-if="showMenu"
