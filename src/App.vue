@@ -13,7 +13,9 @@ const edges = ref(initialEdges)
 const showMenu = ref(false);
 const showCalc = ref(false);
 const showList = ref(false);
+const showHelp = ref(false)
 const search = ref('')
+const helpPage = ref(0)
 
 const patternTable = ref([{
     Name: '',
@@ -65,6 +67,11 @@ function onNodeClick({ event, node }) {
     else if (node.id == 31){
       showMenu.value = false;
       showList.value = true;
+    }
+    else if (node.id == 32){
+      showMenu.value = false;
+      helpPage.value = 0;
+      showHelp.value = true;
     }
   }
   else {
@@ -198,7 +205,92 @@ font-size: x-large;
 </style>
 
 <template>
-  
+  <v-overlay
+  v-model="showHelp"
+  style="align-items: center; justify-content: center;"
+  >
+    <v-sheet
+    v-if="helpPage==0"
+    rounded="rounded"
+    style="width: 700px; height: 490px; justify-content: center; overflow-y: scroll;">
+      <div
+      style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
+        <XMarkIcon
+        @click="showHelp = false"
+        style="position: relative; display: inline; width: 50px; height: 50px; left: 1%; top: 1%;"
+        />
+        <h1
+        style="position: relative; display: inline; align-self: center; left: 38%;"
+        class="testStyle">
+          Help
+        </h1>
+      </div
+      style="position: relative; padding: 8px;">
+        <p 
+        style="padding-left: 12px; padding-right: 10px; padding-bottom: 8px;">
+          This application serves as a tool for estimating your digital maturity level. By fulfilling the various organizational models described in this application, you are advancing through digital transformation. The more organizational patterns your organization applies or uses, the more digitally mature it is.
+        </p>
+        <p 
+        style="padding-left: 12px; padding-right: 10px; padding-bottom: 8px;">
+          Each colored button is itself an organizational pattern. The simplest 'Infancy' level patterns are marked in green. The intermediate patterns at the 'Establishment' level are yellow, and the most challenging patterns at the 'Optimization' stage are red. We suggest that you start from the top of the model at the 'Taskmaster' pattern and gradually work your way down along the marked lines.
+        </p>
+        <p 
+        style="padding-left: 12px; padding-right: 10px; padding-bottom: 8px;">
+          The patterns are further divided according to the aspect of digital maturity. An aspect represents a certain closed area within the digital transformation. According to these aspects, the patterns have different border colors. For example, the borders of the patterns of the Remote work aspect are marked in dark blue, and the patterns of the Security aspect have a black border.
+        </p>
+      <div
+      style="position: relative; display: inline-block; left: 0; width: 100%; height: 100%; justify-content: center;">
+        <v-btn @click="helpPage = helpPage+1"
+        rounded="lg"
+        style="bottom: 0%; position: relative; display: inline; left: 85%;"
+        class="buttonStyle1">
+          Next
+        </v-btn>
+      </div>
+    </v-sheet>
+
+    <v-sheet
+    v-if="helpPage==1"
+    rounded="rounded"
+    style="width: 700px; height: 490px; justify-content: center; overflow-y: scroll;">
+      <div
+      style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
+        <XMarkIcon
+        @click="showHelp = false"
+        style="position: relative; display: inline; width: 50px; height: 50px; left: 1%; top: 1%;"
+        />
+        <h1
+        style="position: relative; display: inline; align-self: center; left: 38%;"
+        class="testStyle">
+          Help
+        </h1>
+      </div
+      style="position: relative; padding: 8px;">
+        <p 
+        style="padding-left: 12px; padding-right: 10px; padding-bottom: 8px;">
+          If your organization has already used one of the patterns or otherwise solved the problem described in the pattern, you can mark the pattern as completed. You can do so by pressing the button at the bottom of the organizational pattern. All completed patterns will later count towards your digital maturity score.
+        </p>
+      <div
+      style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center;"
+      >
+        <v-btn @click="helpPage = helpPage+1"
+        rounded="lg"
+        style="bottom: 0%; position: relative; display: inline;"
+        class="buttonStyle1">
+          Back
+        </v-btn>
+        <v-btn @click="helpPage = helpPage+1"
+        rounded="lg"
+        style="bottom: 0%; position: relative; display: inline; left: 70%;"
+        class="buttonStyle1">
+          Next
+        </v-btn>
+      </div>
+    </v-sheet>
+
+
+  </v-overlay>
+
   <v-overlay
   v-model="showList"
   style="align-items: center; justify-content: center;"

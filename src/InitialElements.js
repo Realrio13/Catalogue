@@ -669,6 +669,20 @@ export var initialNodes = [
     position: { x: 160, y: 1200 },
     class: 'dark',
   },
+
+  {
+    id: '32',
+    type: 'action',
+    data: { 
+        label: 'Help', 
+    },
+    style: {
+        backgroundColor: 'lightblue',
+        borderColor: 'black',
+    },
+    position: { x: -100, y: 20 },
+    class: 'dark',
+  },
 ]
 
 export const initialEdges = [
