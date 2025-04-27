@@ -49,17 +49,17 @@ function onNodeClick({ event, node }) {
     else finishedColor = 'green';
   }
   else if (node.type == "action"){
-    if (node.id == 30){
-      calculateDigitalMaturity();
-      if (digMaturity < 25) {
+    if (node.id == 30){ // 'calculate digital maturity' node
+      calculateDigitalMaturity(); // DM value calculation based on patterns
+      if (digMaturity < 28) { // Lower than 28 pts -> infancy
         digMatStage.value = "Infancy";
-        nextStageText = "25 or more points reqired for Establishment"
+        nextStageText = "28 or more points reqired for Establishment"
       }
-      else if (digMaturity < 70 && digMaturity > 24) {
+      else if (digMaturity < 78 && digMaturity > 27) {  // Lower than 78 pts -> establishment
         digMatStage.value = "Establishment";
-        nextStageText = "70 or more points reqired for Optimisation"
+        nextStageText = "78 or more points reqired for Optimisation"
       }
-      else if (digMaturity > 70) {
+      else if (digMaturity > 78) { // Higher than 78 pts -> optimisation
         digMatStage.value = "Optimisation";
         nextStageText = "You have reached the final stage of digital maturity; Well done!"
       }
@@ -82,40 +82,73 @@ function onNodeClick({ event, node }) {
   }
 }
 
-function calculateDigitalMaturity(){
+function calculateDigitalMaturity(){  // calculate digital maturity value besed on completed patterns
   digValues = [0,0,0,0,0,0,0];
   // check for unique fields
-  if (nodes.value[0].data.complete || nodes.value[1].data.complete) digValues[0]+=2; // Implementation 1
+  if (nodes.value[0].data.complete || nodes.value[1].data.complete) { // Implementation 1
+    if (nodes.value[0].data.complete && nodes.value[1].data.complete)
+      digValues[0]+=2; 
+    else digValues[0]+=1; 
+  }
   if (nodes.value[2].data.complete) digValues[1]+=2; // Data 1
   if (nodes.value[6].data.complete) digValues[2]+=2; // Security 1
-  if (nodes.value[4].data.complete || nodes.value[8].data.complete) digValues[3]+=2; // Management 1
+  if (nodes.value[4].data.complete || nodes.value[8].data.complete) { // Management 1
+    if (nodes.value[4].data.complete && nodes.value[8].data.complete)
+      digValues[3]+=2; 
+    else digValues[3]+=1; 
+  }
   if (nodes.value[9].data.complete) digValues[4]+=2; // Remote 1
   if (nodes.value[5].data.complete) digValues[5]+=2; // Automation 1
   if (nodes.value[14].data.complete) digValues[6]+=2; // Customer 1
 
-  if (nodes.value[3].data.complete || nodes.value[7].data.complete) digValues[0]+=2; // Implementation 2
+  if (nodes.value[3].data.complete || nodes.value[7].data.complete) { // Implementation 2
+    if (nodes.value[3].data.complete && nodes.value[7].data.complete)
+      digValues[0]+=2; 
+    else digValues[0]+=1; 
+  }
   if (nodes.value[10].data.complete) digValues[1]+=2; // Data 2
   if (nodes.value[13].data.complete) digValues[2]+=2; // Security 2
-  if (nodes.value[15].data.complete || nodes.value[11].data.complete) digValues[3]+=2; // Management 2
+  if (nodes.value[15].data.complete || nodes.value[11].data.complete) { // Management 2
+    if (nodes.value[15].data.complete && nodes.value[11].data.complete)
+      digValues[3]+=2; 
+    else digValues[3]+=1; 
+  }
   if (nodes.value[16].data.complete) digValues[4]+=2; // Remote 2
   if (nodes.value[12].data.complete) digValues[5]+=2; // Automation 2
   if (nodes.value[20].data.complete) digValues[6]+=2; // Customer 2
 
-  if (nodes.value[25].data.complete || nodes.value[28].data.complete) digValues[0]+=2; // Implementation 3
+  if (nodes.value[25].data.complete || nodes.value[28].data.complete) { // Implementation 3
+    if (nodes.value[25].data.complete && nodes.value[28].data.complete)
+      digValues[0]+=2; 
+    else digValues[0]+=1; 
+  }
   if (nodes.value[17].data.complete) digValues[1]+=2; // Data 3
   if (nodes.value[19].data.complete) digValues[2]+=2; // Security 3
-  if (nodes.value[27].data.complete || nodes.value[21].data.complete) digValues[3]+=2; // Management 3
-  if (nodes.value[24].data.complete || nodes.value[22].data.complete) digValues[4]+=2; // Remote 3
-  if (nodes.value[23].data.complete || nodes.value[18].data.complete) digValues[5]+=2; // Automation 3
+  if (nodes.value[27].data.complete || nodes.value[21].data.complete) { // Management 3
+    if (nodes.value[27].data.complete && nodes.value[21].data.complete)
+      digValues[3]+=2; 
+    else digValues[3]+=1; 
+  }
+  if (nodes.value[24].data.complete || nodes.value[22].data.complete) {  // Remote 3
+    if (nodes.value[24].data.complete && nodes.value[22].data.complete)
+      digValues[4]+=2; 
+    else digValues[4]+=1; 
+  }
+  if (nodes.value[23].data.complete || nodes.value[18].data.complete) { // Automation 3
+    if (nodes.value[23].data.complete && nodes.value[18].data.complete)
+      digValues[5]+=2; 
+    else digValues[5]+=1; 
+  }
   if (nodes.value[26].data.complete) digValues[6]+=2; // Customer 3
 
   // values for individual patterns
   var pts = 0;
-  for (let i = 0; i<29; i++){
+  for (let i = 0; i<29; i++){ // checking stage
     if ([0,1,2,6,4,8,9,5,14].includes(i)) pts = 1; // infancy
     else if ([3,7,10,13,15,11,16,12,20].includes(i)) pts = 2; // establishment
     else if ([25,28,17,19,27,21,24,22,23,18,26].includes(i)) pts = 3; // optimisation
 
+      // checking pattern
     if ([0,1,3,7,25,28].includes(i) && nodes.value[i].data.complete) digValues[0]+=pts;
     if ([2,10,17].includes(i) && nodes.value[i].data.complete) digValues[1]+=pts;
     if ([6,13,19].includes(i) && nodes.value[i].data.complete) digValues[2]+=pts;
@@ -129,8 +162,6 @@ function calculateDigitalMaturity(){
   digMaturity = digValues[0] + digValues[1] + digValues[2] + digValues[3] + digValues[4] + digValues[5] + digValues[6]
 
   console.log("Points:", digMaturity);
-
-
 }
 
 function finish({event, node}){

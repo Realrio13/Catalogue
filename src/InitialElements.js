@@ -28,7 +28,7 @@ export var initialNodes = [
     id: '2',
     type: 'special',
     data: { 
-      label: 'Pilot lines', 
+      label: 'Pilot Lines', 
       complete: false,
       description1: "...you have started automating some processes on a smaller scale. However, during digital transformation, you will need to commit to some risky changes that will influence the entire organization. Implementing digital transformation is an expensive feat, and you have no way of knowing if it will succeed or fail.",
       description2: "    Implementing a large-scale change in an organization can bring about numerous benefits, but it also comes with several downsides and challenges. If the idea is flawed, it could damage or completely stop your productivity.",
@@ -50,7 +50,7 @@ export var initialNodes = [
     id: '3',
     type: 'special',
     data: { 
-      label: 'Data digitization', 
+      label: 'Data Digitization', 
       complete: false,
       description1: "...in your organization, you produce or store a large quantity of data. So far, you are used to physical copies of your data. Storage of physical data can involve having to print out a lot of pages of data and storing them in boxes in a dedicated storage room. Employees can then check out entire boxes of data when looking for any information within them.",
       description2: "    Printed data takes up a lot of space, and unless you have an extremely good search system in place, it is near impossible to find whatever you are looking for in reasonable amount of time. Physical data tends to get lost when someone borrows it. If more employees need the same data, you might not have enough copies.",
@@ -72,7 +72,7 @@ export var initialNodes = [
     id: '4',
     type: 'special',
     data: { 
-      label: 'At dawn...',
+      label: 'At Dawn...',
       complete: false,
       description1: "...It is time to move forward with your digital transformation. You have outlined some processes that need to be automated, some changes to the organizational structure that need to be implemented, but you are not sure how to move forward without disrupting your organization too much.",
       description2: "    Proceeding with digital transformation without a set goal can be dangerous. Throughout the transformation it is important to not lose sight of your initial goals and vision. Rushing into digital transformation without a plan can result in increased costs, longer timelines, and a loss of focus on core goals.",
@@ -94,7 +94,7 @@ export var initialNodes = [
     id: '5',
     type: 'special',
     data: { 
-      label: 'Structural modernization', 
+      label: 'Structural Modernization', 
       complete: false,
       description1: "...your organization now employs more than a dozen employees. Until now you did not need to think about the structure of your organization as your employees report directly to you. However, as your organization grows you notice that this structure cannot be optimal in the long run.",
       description2: "    Small organizations start with a flat organizational structure in which all employees report directly to the owner. When the workforce of the organization grows, a structure like this becomes impossible to maintain. Poor structure can negatively affect your business opportunities, your productivity, and your organization's ability to grow.",
@@ -116,7 +116,7 @@ export var initialNodes = [
     id: '6',
     type: 'special',
     data: { 
-      label: 'Robot resources', 
+      label: 'Robot Resources', 
       complete: false,
       description1: "...now your organization is growing and you are looking for more basic manual processes to automate. So far processes like onboarding, payroll, and leave management are done completely manually.",
       description2: "    Every organization needs a human resources department. Once the size of the organization increases, the HR department becomes overwhelmed by the demands of every single employee. If none of your tasks are automated, you will spend too much time doing everything by hand. If the needs of the organization grow too large, HR will no longer be able to sustain them, which can lead to the collapse of the organization.",
@@ -138,7 +138,7 @@ export var initialNodes = [
     id: '7',
     type: 'special',
     data: { 
-      label: 'Security breach', 
+      label: 'Security Breach', 
       complete: false,
       description1: "...with digital transformation, security takes on a whole new meaning. It is no longer enough to protect your workplace with cameras or guards. In this new age, it is becoming more and more important to protect your data from competition and enemies.",
       description2: "    You have noticed a lack of security in your organization. Many people have access or editing privileges to files they shouldn't. Employees are not sure who should access which files and sometimes overshare sensitive information. Data leakage problems are on the horizon.",
@@ -160,7 +160,7 @@ export var initialNodes = [
     id: '8',
     type: 'special',
     data: { 
-      label: 'Resistance to change', 
+      label: 'Resistance To Change', 
       complete: false,
       description1: "...recently you started to implement digital transformation in your organization. However, digital transformation is a difficult and complicated process to integrate within any organization. Your employees have been informed about which steps to take towards the new system, but it can be a bit too much at once.",
       description2: "    With digital transformation always comes a lot of change in the work processes. People are often resistant to change, and digital transformation requires a significant cultural shift. Employees may be reluctant to adopt new technologies, new work processes, or new ways of interacting with customers.",
@@ -182,7 +182,7 @@ export var initialNodes = [
     id: '9',
     type: 'special',
     data: { 
-      label: 'Training montage', 
+      label: 'Training Montage', 
       complete: false,
       description1: "...in your organization, you have implemented many new processes and technologies. For most people, even the most effective processes may not be intuitive.",
       description2: "    Employees may be resistant to adopting new technologies, especially if they are comfortable with their current tools and processes. This resistance can stem from fear of the unknown, concerns about job security, or a reluctance to leave their comfort zones. If your employees won't adopt your new methods the digital transformation is going to fail.",
@@ -204,7 +204,7 @@ export var initialNodes = [
     id: '10',
     type: 'special',
     data: { 
-      label: 'Hybrid work program', 
+      label: 'Hybrid Work Program', 
       complete: false,
       description1: "...in the days after Covid-19 we can quite often see companies with a successful implementation of a remote work program. You haven't tried implementing it for your own organization but wondered if it would improve anything.",
       description2: "    These days remote work is a very sought after perk. Jobs with this perk can attract more qualified employees and improve job satisfaction. The problem is how to accomplish it. Implementing a remote work program would require a lot of resources. This transition even destroyed many organizations during the Covid lockdowns.",
@@ -226,7 +226,7 @@ export var initialNodes = [
     id: '11',
     type: 'special',
     data: { 
-      label: 'Digital storage inadequacy', 
+      label: 'Digital Storage Inadequacy', 
       complete: false,
       description1: "...in the near past you have digitized large amounts of your physical data. In addition to clearing up a lot of space, digitizing has made it easier to access and search the data for your employees. It is important to keep improving your digital storage system, so you accidentally don't revert back to physical storage.",
       description2: "    No one gets the digital storage for their organization on the first try. Many new issues can arise from the creation of an entire new storage system. When digitizing, digital data can become inconsistent and include errors. If you choose to have multiple storage systems, they can be improperly connected and make it difficult to access data across your organization. Digital storage also tends to be slower and less efficient with huge amounts of data.",
@@ -248,7 +248,7 @@ export var initialNodes = [
     id: '12',
     type: 'special',
     data: { 
-      label: 'Task manager', 
+      label: 'Task Manager', 
       complete: false,
       description1: "...every team receives a set of tasks to do. These tasks are further distributed to the members of the team.",
       description2: "    It is difficult to gauge the importance and urgency of a task when you have too many of them. In your current system, the priority may be given to the wrong tasks leaving the important tasks unfinished",
@@ -270,7 +270,7 @@ export var initialNodes = [
     id: '13',
     type: 'special',
     data: { 
-      label: 'Time management automation', 
+      label: 'Time Management Automation', 
       complete: false,
       description1: "...every member of your team reports either their hours, their workdays, or holidays to their superior. The superior then needs to keep track of everyone's time and manage who gets to work when. This is how time management worked for ages. However, with modern technologies, it can probably be simplified.",
       description2: "    Process of management can be very time consuming. The verification of the work time of the employees is an overly extensive process that needs to be shortened.",
@@ -292,7 +292,7 @@ export var initialNodes = [
     id: '14',
     type: 'special',
     data: { 
-      label: 'Advanced data security',
+      label: 'Advanced Data Security',
       complete: false,
       description1: "...Previously you have implemented a basic system to protect vulnerable files. All physical data has been digitized and stored in some form of database. You have noticed that as your organization grows, so do the threats to your data.",
       description2: "    At some point it will not be enough to change access permissions to data files. Unauthorized people could still find the restricted files and, with some determination, break your security. More cyber-security risks emerge every day and you need a better system to be able to repel them.",
@@ -314,7 +314,7 @@ export var initialNodes = [
     id: '15',
     type: 'special',
     data: { 
-      label: 'Frontpage of the organization',
+      label: 'Frontpage Of The Organization',
       complete: false,
       description1: "...your organization is growing in size. So far, you only interact with customers directly. Only customers who already know about your organization know how to find you. They say that word of mouth is the most efficient marketing strategy, but in your case word of mouth alone will not be enough.",
       description2: "    Your organization is essentially invisible online. Its visibility, credibility, and marketing opportunities are very limited in the digital landscape, potentially hindering growth and customer base.",
@@ -336,7 +336,7 @@ export var initialNodes = [
     id: '16',
     type: 'special',
     data: { 
-      label: 'Modern leadership', 
+      label: 'Modern Leadership', 
       complete: false,
       description1: "...the workforce of your organization now contains enough employees to build multiple teams. In the past, you have modernized your organization's internal structure to allow for better expansion. Every team in your organization needs a leader to help focus their work efforts.",
       description2: "    Every leader has their own system of management. Some of these systems can be quite inefficient or outdated. Inefficient management can lead to a variety of problems that will slow down your teams.",
@@ -358,7 +358,7 @@ export var initialNodes = [
     id: '17',
     type: 'special',
     data: { 
-      label: 'Remote equipment shortage', 
+      label: 'Remote Equipment Shortage', 
       complete: false,
       description1: "...recently you have started a remote work program. Remote workers cannot be expected to provide the necessary equipment for themselves. Remote work requires sufficient equipment to lend to remotely working employees.",
       description2: "    Your remote work program was too desired. Way more people than you expected have signed up for the remote work program. With this many people, there is not enough equipment to give them to work remotely. You worry that you will need to reject a lot of remote work applications or cancel the program outright.",
@@ -380,7 +380,7 @@ export var initialNodes = [
     id: '18',
     type: 'special',
     data: { 
-      label: 'Data scaling', 
+      label: 'Data Scaling', 
       complete: false,
       description1: "...it was difficult, but you have managed to successfully move all of your organizations data to the cloud. Over time, you may notice that the volume of your data as well as the demand for it increases. If you have only set up a basic data infrastructure after a while, it may start to slow down. If the demand grows even more, it might impede the speed of your services.",
       description2: "    Over time your business needs to store more data. However, storing a lot of data with an outdated system can cause a lot of problems. All the problems like data complexity, traffic distribution, or even integration stem from poor data management. These issues do not appear right away, but when either the quantity of the data or the demand becomes too much to handle, they can cause serious delays within your organization.",
@@ -402,7 +402,7 @@ export var initialNodes = [
     id: '19',
     type: 'special',
     data: { 
-      label: 'Routine software maintenance', 
+      label: 'Routine Software Maintenance', 
       complete: false,
       description1: "...your employees are using custom software that your organization has created to help them work. The difference between bought software and your own software is that you can work towards improving it.",
       description2: "    If you are using custom software made for your organization, new bugs and issues may appear over time. These issues are most likely to be reported by your employees who use the software the most. Even in the final versions of your company software, there are always things to improve or fix.",
@@ -424,7 +424,7 @@ export var initialNodes = [
     id: '20',
     type: 'special',
     data: { 
-      label: 'Threat intelligence', 
+      label: 'Threat Intelligence', 
       complete: false,
       description1: "...Many improvements to data security have been implemented in your organization. Even though you have protocols to protect your data, you still feel vulnerable when cyber threats are constantly evolving.",
       description2: "    It is impossible to be completely safe due to the shifting nature of cyber attacks. Taking precautions to protect yourself is an important step, but people can still launch a specifically tailored attack against you that can break your defenses.",
@@ -446,7 +446,7 @@ export var initialNodes = [
     id: '21',
     type: 'special',
     data: { 
-      label: 'Social media presence', 
+      label: 'Social Media Presence', 
       complete: false,
       description1: "...you have created a website for your organization or made a similar first step towards customer outreach. Your organization now employs enough people to warrant a new, more hands on customer interaction approach.",
       description2: "    A website of an organization is a useful start. However, it is usually a static way to inform about your organization and offers very limited customer interaction or outreach. To reach new customers, a more active approach is required.",
@@ -468,7 +468,7 @@ export var initialNodes = [
     id: '22',
     type: 'special',
     data: { 
-      label: 'Open comms', 
+      label: 'Open Comms', 
       complete: false,
       description1: "...your workforce is now divided into teams. Employees communicate on need-to-know basis, usually between two individuals in the team. Everyone uses a different style of communication.",
       description2: "    Communication is the most important skill of a team member. Right now, even with the new organization's team structure, the new teams lack the means for proper communication. Inefficient communication in teams can cause a variety of problems that can hinder productivity, collaboration, and overall team effectiveness.",
@@ -490,7 +490,7 @@ export var initialNodes = [
     id: '23',
     type: 'special',
     data: { 
-      label: 'Remote monitoring', 
+      label: 'Remote Monitoring', 
       complete: false,
       description1: "...so you have established a remote work program. Some of the employees took advantage of this and started working from home. You have noticed, that the ones that stayed are easier to monitor than the ones that work remotely.",
       description2: "    The offices are emptier, but you don't know if remote employees are using their work time at home efficiently. You need to remotely monitor your employees' time to be more efficient.",
@@ -512,7 +512,7 @@ export var initialNodes = [
     id: '24',
     type: 'special',
     data: { 
-      label: 'Technology migration', 
+      label: 'Technology Migration', 
       complete: false,
       description1: "...at work your employees work with a large number of technologies. These technologies may be programming languages, specific work related software, or even meeting scheduling software. IT technology constantly advances and changes. This also means that at some point there will be a better alternative to any kind of software that you use. Listen to the employees who work with these technologies everyday: they will probably be the ones that bring this to your attention.",
       description2: "    Eventually you might notice that a technology that your team is using may not be the best for accomplishing your goal. That technology may be an outdated software, a programming language, or even a method",
@@ -534,7 +534,7 @@ export var initialNodes = [
     id: '25',
     type: 'special',
     data: { 
-      label: 'Group outliers', 
+      label: 'Group Outliers', 
       complete: false,
       description1: "...not long ago, you have established a functional remote work program. You also have divided your workforce into teams that each perform smaller tasks more efficiently. Since the remote work program, many team members have decided to take this opportunity and work remotely. When some team members work remotely and some work in your workplace, they no longer meet face-to-face often.",
       description2: "    Over time you notice that some of the remote working team members grow apart. They get distanced, attend less meetings, and their morale is lower. You feel like they aren't as engaged as they should be.",
@@ -556,7 +556,7 @@ export var initialNodes = [
     id: '26',
     type: 'special',
     data: { 
-      label: 'Further problem detection', 
+      label: 'Further Problem Detection', 
       complete: false,
       description1: "...every organization's internal processes have issues. The goal of digital maturity is to improve efficiency in your work place. Your organization has started digital transformation and implemented some new processes and new technologies. However, it feels like problems keep appearing with the new changes.",
       description2: "    Your improvements may look perfect on paper. However, in reality, no organization can run with 100% efficiency. With every new process or every new technology, more problems may appear that impede the efficiency of your organization",
@@ -578,7 +578,7 @@ export var initialNodes = [
     id: '27',
     type: 'special',
     data: { 
-      label: 'Customer service automation', 
+      label: 'Customer Service Automation', 
       complete: false,
       description1: "...you have successfully increased your visibility among potential customers. Your online presence is now more than adequate to have a steady supply of new clients. Many of these potential clients have specific requests that need to be answered manually.",
       description2: "    Dealing with all customers individually is an extensive task. Their requests may differ from each other, requiring different solutions. Right now, you may have tasked an employee to respond to their requests. However, for an expanding organization this solution is only short term.",
