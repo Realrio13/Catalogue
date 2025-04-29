@@ -2,6 +2,8 @@
 import { computed } from 'vue'
 import { Position, Handle } from '@vue-flow/core'
 
+// Node class for patterns
+
 const props = defineProps({
   id: {
     type: String,

@@ -1,6 +1,11 @@
 import { MarkerType } from '@vue-flow/core'
 
+// File containing all initial elements of the diagram
+
 export var initialNodes = [
+  // Initial nodes are representation of organisational patterns
+  // Description is broken down to 6 sections to help with formatting
+  // Next 29 nodes all all the patterns
   {
     id: '1',
     type: 'special',    
@@ -641,6 +646,9 @@ export var initialNodes = [
     class: 'light',
   },
 
+  // Action nodes are pressable buttons
+  // Each has a different function described in the label
+  // These buttons are disguised as nodes so they can be placed into the diagram
 
   {
     id: '30',
@@ -686,6 +694,8 @@ export var initialNodes = [
 ]
 
 export const initialEdges = [
+  // Edges between connected nodes
+  // Represents connections in the pattern language
   {
     id: 'e1-2',
     source: '1',
