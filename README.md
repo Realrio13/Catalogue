@@ -4,12 +4,12 @@ This is a 'Catalogue' of the digital maturity model by Richard Andrášik. It is
 
 ## Contents
 
-29 Organisational patterns
-7 Aspects of digital maturity
-3 Digital maturity stages
-3rd iteration of the digital maturity model
-Interconnected pattern language
-Digital maturity stage calculation 
+29 Organisational patterns\
+7 Aspects of digital maturity\
+3 Digital maturity stages\
+3rd iteration of the digital maturity model\
+Interconnected pattern language\
+Digital maturity stage calculation\
 
 ## Project Setup
 
