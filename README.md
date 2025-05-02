@@ -20,4 +20,4 @@ npm install
 npm run dev
 ```
 
-Project is also deployment ready.s
+Project is also deployment ready.
