@@ -397,7 +397,7 @@ export var initialNodes = [
       aspect:"Data"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkblue',
     },
     position: { x: 200, y: 750 },
@@ -419,7 +419,7 @@ export var initialNodes = [
       aspect:"Automation"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'orange',
     },
     position: { x: 0, y: 780 },
@@ -441,7 +441,7 @@ export var initialNodes = [
       aspect:"Security"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'black',
     },
     position: { x: 400, y: 830 },
@@ -485,7 +485,7 @@ export var initialNodes = [
       aspect:"Management"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'tomato',
     },
     position: { x: 920, y: 700 },
@@ -507,7 +507,7 @@ export var initialNodes = [
       aspect:"Remote work"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkred',
     },
     position: { x: 1120, y: 700 },
@@ -529,7 +529,7 @@ export var initialNodes = [
       aspect:"Automation"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkblue',
     },
     position: { x: 200, y: 960 },
@@ -551,7 +551,7 @@ export var initialNodes = [
       aspect:"Remote work"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkred',
     },
     position: { x: 1000, y: 830 },
@@ -573,7 +573,7 @@ export var initialNodes = [
       aspect:"Implementation"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkgreen',
     },
     position: { x: 400, y: 960 },
@@ -595,7 +595,7 @@ export var initialNodes = [
       aspect:"Customer interaction"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'purple',
     },
     position: { x: 600, y: 960 },
@@ -617,7 +617,7 @@ export var initialNodes = [
       aspect:"Management"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'tomato',
     },
     position: { x: 800, y: 960 },
@@ -639,7 +639,7 @@ export var initialNodes = [
       aspect:"Implementation"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkgreen',
     },
     position: { x: 400, y: 1170 },
