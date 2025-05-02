@@ -9,7 +9,7 @@ This is a 'Catalogue' of the digital maturity model by Richard Andrášik. It is
 3 Digital maturity stages\
 3rd iteration of the digital maturity model\
 Interconnected pattern language\
-Digital maturity stage calculation\
+Digital maturity stage calculation
 
 ## Project Setup
 
