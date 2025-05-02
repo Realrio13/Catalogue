@@ -1,6 +1,11 @@
 import { MarkerType } from '@vue-flow/core'
 
+// File containing all initial elements of the diagram
+
 export var initialNodes = [
+  // Initial nodes are representation of organisational patterns
+  // Description is broken down to 6 sections to help with formatting
+  // Next 29 nodes all all the patterns
   {
     id: '1',
     type: 'special',    
@@ -392,7 +397,7 @@ export var initialNodes = [
       aspect:"Data"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkblue',
     },
     position: { x: 200, y: 750 },
@@ -414,7 +419,7 @@ export var initialNodes = [
       aspect:"Automation"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'orange',
     },
     position: { x: 0, y: 780 },
@@ -436,7 +441,7 @@ export var initialNodes = [
       aspect:"Security"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'black',
     },
     position: { x: 400, y: 830 },
@@ -480,7 +485,7 @@ export var initialNodes = [
       aspect:"Management"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'tomato',
     },
     position: { x: 920, y: 700 },
@@ -502,7 +507,7 @@ export var initialNodes = [
       aspect:"Remote work"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkred',
     },
     position: { x: 1120, y: 700 },
@@ -524,7 +529,7 @@ export var initialNodes = [
       aspect:"Automation"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkblue',
     },
     position: { x: 200, y: 960 },
@@ -546,7 +551,7 @@ export var initialNodes = [
       aspect:"Remote work"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkred',
     },
     position: { x: 1000, y: 830 },
@@ -568,7 +573,7 @@ export var initialNodes = [
       aspect:"Implementation"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkgreen',
     },
     position: { x: 400, y: 960 },
@@ -590,7 +595,7 @@ export var initialNodes = [
       aspect:"Customer interaction"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'purple',
     },
     position: { x: 600, y: 960 },
@@ -612,7 +617,7 @@ export var initialNodes = [
       aspect:"Management"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'tomato',
     },
     position: { x: 800, y: 960 },
@@ -634,13 +639,16 @@ export var initialNodes = [
       aspect:"Implementation"
     },
     style: {
-      backgroundColor: '#e84650',
+      backgroundColor: '#ed7179',
       borderColor: 'darkgreen',
     },
     position: { x: 400, y: 1170 },
     class: 'light',
   },
 
+  // Action nodes are pressable buttons
+  // Each has a different function described in the label
+  // These buttons are disguised as nodes so they can be placed into the diagram
 
   {
     id: '30',
@@ -686,6 +694,8 @@ export var initialNodes = [
 ]
 
 export const initialEdges = [
+  // Edges between connected nodes
+  // Represents connections in the pattern language
   {
     id: 'e1-2',
     source: '1',

@@ -1,17 +1,17 @@
 <script setup>
 import { ref } from 'vue'
 import { VueFlow, useVueFlow } from '@vue-flow/core'
-import { initialEdges, initialNodes } from './InitialElements.js'
-import SpecialNode from './components/SpecialNode.vue'
-import ActionNode from './components/ActionNode.vue'
-import help1 from './components/icons/help1.png'
-import help2 from './components/icons/help2.png'
-import help3 from './components/icons/help3.png'
+import { initialEdges, initialNodes } from '../InitialElements.js'
+import SpecialNode from '../components/SpecialNode.vue'
+import ActionNode from '../components/ActionNode.vue'
+import help1 from '../components/icons/help1.png'
+import help2 from '../components/icons/help2.png'
+import help3 from '../components/icons/help3.png'
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 
-const { onInit, onNodeDragStop} = useVueFlow()
+const { onInit} = useVueFlow()
 
-const nodes = ref(initialNodes)
+const nodes = ref(initialNodes) // All patterns from InitialElements
 const edges = ref(initialEdges)
 const showMenu = ref(false);
 const showCalc = ref(false);
@@ -20,33 +20,28 @@ const showHelp = ref(false)
 const search = ref('')
 const helpPage = ref(0)
 
-const patternTable = ref([{
-    Name: '',
-    Completed: false,
-}]);
-
+var finishedColor='';
 var currentNode = ref(null);
-var finishedColor = ref(null);
 var digMaturity = 0;
 var digMatStage = ref(null);
 var digValues = [];
 
 var nextStageText = "";
 
-onInit((vueFlowInstance) => {
+onInit((vueFlowInstance) => { // Initialise VueFlow
   // instance is the same as the return of `useVueFlow`
   vueFlowInstance.fitView()
 })
 
-function onNodeClick({ event, node }) {
-  if (node.type == "special" && !showMenu.value) {
+function onNodeClick({ event, node }) { // When node is clicked
+  if (node.type == "special" && !showMenu.value) {  // For pattern nodes && closes single pattern view
     console.log('Node clicked: ', node.data.label, event);
-    currentNode = node;
-    showMenu.value = true;
-    if (node.data.complete == false){
-      finishedColor = 'red';
+    currentNode = node; // Sets current pattern
+    if (node.data.complete){ // Sets colour of the window based on pattern completion
+      finishedColor = 'green';
     }
-    else finishedColor = 'green';
+    else finishedColor = 'red';
+    showMenu.value = true;  // Single pattern view opens
   }
   else if (node.type == "action"){
     if (node.id == 30){ // 'calculate digital maturity' node
@@ -64,26 +59,26 @@ function onNodeClick({ event, node }) {
         nextStageText = "You have reached the final stage of digital maturity; Well done!"
       }
       console.log(digMatStage.value);
-      showMenu.value = false;
-      showCalc.value = true;
+      showMenu.value = false; // Closes single pattern view
+      showCalc.value = true;  // Opens digital maturity view
     }
-    else if (node.id == 31){
+    else if (node.id == 31){  // Shows list of patterns
       showMenu.value = false;
       showList.value = true;
     }
-    else if (node.id == 32){
+    else if (node.id == 32){  // Shows help page
       showMenu.value = false;
-      helpPage.value = 0;
+      helpPage.value = 0;     // Sets help to the first page
       showHelp.value = true;
     }
   }
-  else {
+  else {  // Default: closes single pattern view
     showMenu.value = false;
   }
 }
 
 function calculateDigitalMaturity(){  // calculate digital maturity value besed on completed patterns
-  digValues = [0,0,0,0,0,0,0];
+  digValues = [0,0,0,0,0,0,0];  // 7 fields for 7 aspects
   // check for unique fields
   if (nodes.value[0].data.complete || nodes.value[1].data.complete) { // Implementation 1
     if (nodes.value[0].data.complete && nodes.value[1].data.complete)
@@ -143,12 +138,12 @@ function calculateDigitalMaturity(){  // calculate digital maturity value besed 
 
   // values for individual patterns
   var pts = 0;
-  for (let i = 0; i<29; i++){ // checking stage
+  for (let i = 0; i<29; i++){ // checking stage of pattern
     if ([0,1,2,6,4,8,9,5,14].includes(i)) pts = 1; // infancy
     else if ([3,7,10,13,15,11,16,12,20].includes(i)) pts = 2; // establishment
     else if ([25,28,17,19,27,21,24,22,23,18,26].includes(i)) pts = 3; // optimisation
 
-      // checking pattern
+      // checking aspect of pattern
     if ([0,1,3,7,25,28].includes(i) && nodes.value[i].data.complete) digValues[0]+=pts;
     if ([2,10,17].includes(i) && nodes.value[i].data.complete) digValues[1]+=pts;
     if ([6,13,19].includes(i) && nodes.value[i].data.complete) digValues[2]+=pts;
@@ -164,19 +159,19 @@ function calculateDigitalMaturity(){  // calculate digital maturity value besed 
   console.log("Points:", digMaturity);
 }
 
-function finish({event, node}){
+function finish(){  // Mark node as finished
   console.log("(Un)Finishing node: " , nodes.value[currentNode.id - 1].data.label)
   nodes.value[currentNode.id - 1].data.complete = !nodes.value[currentNode.id - 1].data.complete
-  showMenu.value = false;
+  showMenu.value = false; // Close single pattern screen
 }
 
-function combinedSearch (value, query, item) {
+function combinedSearch (value, query, item) {  // Searchbar in list of patterns
   return typeof value === 'string' && item.key < 30 && value.toString().toLocaleUpperCase().indexOf(query.toLocaleUpperCase()) !== -1
 }
 
-function openPatternFromTable(value, item){
-  if (value.srcElement.type != "checkbox"){
-    currentNode = item.item;
+function openPatternFromTable(value, item){ // Opens single pattern view from table view
+  if (value.srcElement.type != "checkbox"){ // Unless checkbox is clicked
+    currentNode = item.item;  // Sets clicked node as current node
     showList.value = false;
     showMenu.value = true;
   }
@@ -186,7 +181,7 @@ function handleFocusOut(){
   showMenu.value = false;
 }
 
-const headers = [
+const headers = [ // Headers in pattern list view
   {title:'Name', key:'data.label', sortable: false},
   {title:'Model step', key:'data.step', sortable: false},
   {title:'Pattern aspect', key:'data.aspect', sortable: false},
@@ -196,7 +191,7 @@ const headers = [
 </script>
 
 <style scoped>
-.slide-fade-enter-active {
+.slide-fade-enter-active { /*Single pattern view transitions*/
 transition: all 0.3s ease-out;
 }
 
@@ -210,27 +205,27 @@ transform: translateX(100%);
 opacity: 0;
 }
 
-.testStyle {
+.testStyle {  /*Universal container style*/
 position: relative;
 font-weight: 900;
 font-size: x-large;
 }
 
-.basicS{
+.basicS{  /*Standard font style*/
   text-align: left; 
   font-family: Georgia, 'Times New Roman', Times, serif; 
   text-transform: none;
   padding-left: 8px;
 }
 
-.showMenuIncomplete{
+.showMenuIncomplete{  /*Complete and incomplete colors for single pattern view*/
   background-color: rgb(255, 115, 115); 
 }
 .showMenuComplete{
   background-color: rgb(115, 255, 115); 
 }
 
-.buttonStyle1{
+.buttonStyle1{  /*Style for all buttons*/
   left: 5%;
   color: black;
   background-color: lightblue;
@@ -239,14 +234,16 @@ font-size: x-large;
 </style>
 
 <template>
+  <!--All 3 overlays, then the main screen and single pattern view-->
   <v-overlay
   v-model="showHelp"
   style="align-items: center; justify-content: center;"
-  >
+  > <!--Help View-->
     <v-sheet
     v-if="helpPage==0"
     rounded="rounded"
-    style="width: 700px; height: 490px; justify-content: center; overflow-y: scroll;">
+    border="solid lg"
+    style="width: 700px; height: 490px; justify-content: center; overflow-y: scroll;"> <!--Page 1-->
       <div
       style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
         <XMarkIcon
@@ -286,7 +283,8 @@ font-size: x-large;
     <v-sheet
     v-if="helpPage==1"
     rounded="rounded"
-    style="width: 700px; height: 520px; justify-content: center; overflow-y: scroll;">
+    border="solid lg"
+    style="width: 700px; height: 520px; justify-content: center; overflow-y: scroll;"> <!--Page 2-->
       <div
       style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
         <XMarkIcon
@@ -331,7 +329,8 @@ font-size: x-large;
     <v-sheet
     v-if="helpPage==2"
     rounded="rounded"
-    style="width: 700px; height: 460px; justify-content: center; overflow-y: scroll;">
+    border="solid lg"
+    style="width: 700px; height: 460px; justify-content: center; overflow-y: scroll;"> <!--Page 3-->
       <div
       style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
         <XMarkIcon
@@ -375,7 +374,8 @@ font-size: x-large;
     <v-sheet
     v-if="helpPage==3"
     rounded="rounded"
-    style="width: 700px; height: 540px; justify-content: center; overflow-y: scroll;">
+    border="solid lg"
+    style="width: 700px; height: 540px; justify-content: center; overflow-y: scroll;"> <!--Page 4-->
       <div
       style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
         <XMarkIcon
@@ -419,9 +419,10 @@ font-size: x-large;
   <v-overlay
   v-model="showList"
   style="align-items: center; justify-content: center;"
-  >
+  > <!--List of patterns view-->
     <v-sheet
     rounded="rounded"
+    border="solid lg"
     style="width: 700px; height: 450px; justify-content: center; overflow-y: scroll;">
       <div
       style="position: relative; display: inline-block; left: 0; width: 100%; justify-content: center; padding-bottom: 8px;">
@@ -468,9 +469,10 @@ font-size: x-large;
   
   <v-overlay
   v-model="showCalc"
-  style="align-items: center; justify-content: center;">
+  style="align-items: center; justify-content: center;"> <!--Calculate digital maturity view-->
     <v-sheet
     rounded="rounded"
+    border="solid lg"
     style="width: 700px; height: 450px; justify-content: center;">
       <h3
       class="basicS"
@@ -522,7 +524,8 @@ font-size: x-large;
       style="padding-left: 25px;">
         <v-btn
         rounded="lg"
-        style="padding: 5px; width:60px"
+        style="width:60px"
+        class="buttonStyle1"
         @click="showCalc = false">
           Back
         </v-btn>  
@@ -531,7 +534,7 @@ font-size: x-large;
   </v-overlay>
 
 
-  <div style="position: relative; display: inline;">
+  <div style="position: relative; display: inline;"> <!--Main screen-->
     <VueFlow
       :nodes="nodes"
       :edges="edges"
@@ -540,15 +543,16 @@ font-size: x-large;
       :max-zoom="4"
       @node-click="onNodeClick"
       style="width: 100%; height: 900px;"
-    >
+    > <!--Vue flow init (can't fit the whole screen, height has to be set static)-->
       <template #node-special="specialNodeProps">
-        <SpecialNode v-bind="specialNodeProps" />
+        <SpecialNode v-bind="specialNodeProps" /> <!--Binds patterns to SpecialNode class-->
       </template>
       <template #node-action="actionNodeProps">
-        <ActionNode v-bind="actionNodeProps" />
+        <ActionNode v-bind="actionNodeProps" />   <!--Binds buttons to ActionNode class-->
       </template>
     </VueFlow>
-    <Transition name="slide-fade">
+
+    <Transition name="slide-fade"> <!--Single pattern view-->
       <div
       v-if="showMenu"
       style="position: fixed; right: 0; bottom: 0; width: 30%; height: 100%; justify-content: center; overflow-y: scroll;"
@@ -576,6 +580,7 @@ font-size: x-large;
             Scroll down to complete.
           </div>
 
+          <!--Contents of the pattern, formated like Coplien's patterns-->
           <p
           class="basicS">
             {{ currentNode.data.description1 }}
@@ -617,14 +622,18 @@ font-size: x-large;
             {{ currentNode.data.description6 }}
           </p>
           <div
-          style="padding-bottom: 15px; margin-right: auto;">
+          style="padding-bottom: 15px; margin-right: auto; padding-top: 10px;">
             <v-btn @click="finish"
             rounded="lg"
+            class="buttonStyle1"
+            style="left: 0%;"
             v-if="currentNode.data.complete">
               Mark as incomplete
             </v-btn>
             <v-btn @click="finish"
             rounded="lg"
+            class="buttonStyle1"
+            style="left: 0%;"
             v-else>
               Mark as complete
             </v-btn>
